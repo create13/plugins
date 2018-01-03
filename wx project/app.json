@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/me/index",
+    "pages/forif/index",
+    "pages/import/index",
+    "pages/events/index"
+  ],
+  "window":{
+    "navigationBarTitleText":"特价机票"
+  },
+  "tabBar":{
+    "selectedColor":"#00C777",
+    "list":[{
+      "pagePath":"pages/index/index",
+      "iconPath":"pages/image/icon_bcar.png",
+      "selectedIconPath": "pages/image/icon_bcar.png",
+      "text":"订专车"
+    },
+    {
+      "pagePath": "pages/me/index",
+      "iconPath": "pages/image/icon_fligntq.png",
+      "selectedIconPath":"pages/image/icon_fligntq.png",
+      "text": "订机票"
+    },
+    {
+      "pagePath":"pages/forif/index",
+      "iconPath": "pages/image/icon_rpeo.png",
+      "selectedIconPath": "pages/image/icon_rpeo.png",
+      "text":"我的"
+    }
+    ]
+  },
+  "networkTimeout":{
+    "request":10000,
+    "connectSocket":10000,
+    "upload":10000,
+    "downloadFile":10000
+    
+  },
+  "debug":true
+
+}

@@ -1,0 +1,8 @@
+<import src="importA.wxml"/>
+
+<template name="b">
+  <view>
+    B template, data={{name}}
+    <template is="a" data="{{name:'b use a'}}"/>
+  </view>
+</template>

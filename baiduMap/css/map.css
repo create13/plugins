@@ -1,0 +1,11 @@
+html,body{height:100%;width: 100%;}
+#allmap{width:100%;height:calc(100% - 0.8rem);}
+.fx-header{height:0.8rem;padding-right:0.72rem; padding-left:0.72rem;font-size:0.34rem;overflow:hidden;text-align: center;position: relative;line-height: 0.8rem;background:#fff;box-sizing: border-box;border-bottom:1px solid #ddd;}
+.fx-header .city{font-size:0.24rem;display:inline-block;position: absolute;top:0;bottom:0;left:0.24rem;line-height:0.8rem;}
+.fx-header .fx-header-right{font-size:0.24rem;display:block;position: absolute;top:0;bottom:0;right:0.24rem;line-height:0.8rem;}
+.menu-box{position:fixed;left:0;right:0;z-index:3333;}
+.menu{width:100%;height:0.8rem;line-height:0.4rem; border-bottom:1px solid #e5e5e5; background-color:#fff;position:fixed;top:0.8rem;left:0;right:0;box-sizing:border-box}
+.menu li{float:left;width:25%;height:0.8rem;text-align:center;box-sizing: border-box;}
+.menu li a{color:#272727;font-size:0.3rem;display: block;border-right:1px solid #e5e5e5;width:100%;text-align:center;margin-top:.2rem;box-sizing: border-box;overflow: hidden;}
+.menu.menu1 li{width:33%;}
+.line-last{border-right:0}

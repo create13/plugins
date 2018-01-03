@@ -1,0 +1,5 @@
+<template name="a">
+<view>
+A template, data={{name}}
+</view>
+</template>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/dataTables.bootstrap.css" />
+		<title></title>
+	</head>
+	<body>
+		<table id="searchTable" class="table table-bordered table-hover table-responsive">
+			<thead>
+				<tr>
+					<th>编号：</th>
+					<th>状态：</th>
+					<th>转速：</th>
+					<th>流量：</th>
+					<th>压力：</th>
+					<th>功率：</th>
+				</tr>
+			</thead>
+			<tbody>
+							
+			</tbody>
+		</table>
+	</body>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript" src="js/bootstrap.js" ></script>
+	<script type="text/javascript" src="js/jquery.dataTables.js" ></script>
+	<script type="text/javascript" src="js/dataTables.bootstrap.js" ></script>
+	<!--<script type="text/javascript" src="js/bootstrap-paginator.js"></script>-->
+	<script type="text/javascript" src="js/dataT.js"></script>
+	<script>
+
+		$(document).ready(function(){
+        var options = {
+            bootstrapMajorVersion:3,
+            currentPage: 3,
+            numberOfPages: 8,
+            totalPages:10,
+            alignment:"right"
+        }
+        $("#pagintor").bootstrapPaginator(options);
+    });
+
+dataList();
+	</script>
+</html>

@@ -1,0 +1,5 @@
+<import src="importB.wxml"/>
+
+<view>head wxml
+<template is="b" data="{{name:'lily'}}" />
+</view>

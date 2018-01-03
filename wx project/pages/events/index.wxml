@@ -1,0 +1,10 @@
+<view bindtap='tap'> tap me</view>
+<view bindlongtap='longtap'>longtap </view>
+<view bindtouchstart='touchstart'>touchstart</view>
+<view bindtouchend="touchend">touchend</view>
+<view bindtouchmove="touchmove">touchmove</view>
+<view bindtouchcancel="touchcancel">touchcancel</view>
+<view id="red" bindtap='tapred'>
+  <view id="yellow" bindtap='tapyellow'></view>
+  <view id="blue" catchtap='tapblue'></view>
+</view>

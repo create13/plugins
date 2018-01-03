@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+</head>
+<body ng-app="myApp" ng-controller="costCtrl">
+	<!--<select><option ng-repeat="x in names" ng-bind="x.name"></option></select>-->
+	<!--<select ng-options="x.name for x in names"></select>-->
+	<select ng-model="selectedSite" ng-options="x.age for x in names"></select>
+	<h1>你所选中的内容更为：{{selectedSite.age}}</h1>
+	<div ng-repeat="x in names | orderBy:'age'"><p ng-bind="x.age"></p></div>
+	<p ng-bind="doct | reverse"></p>
+	<p ng-bind="url"></p>
+{{ "lower cap string" | uppercase }}<br>
+{{ "LOVE YOURSELF" | lowercase }}<br>
+//data格式化
+{{1490161945000 | date:"yyyy-mm-dd hh:mm:ss"}}<br>
+{{1425.4512 |number:2}}<br>
+{{2500 | currency:"RMB ￥"}}<br>
+{{ [{"age":20,"id":10,"name":"iphone"},{"age":18,"id":11,"name":"sunxing"},{"age":23,"id":09,"name":"huawei"}] | filter:{"name":"iphone"} }}<br>
+<!--根据id升序排列-->
+{{ [{"age":20,"id":10,"name":"iphone"},{"age":18,"id":11,"name":"sunxing"},{"age":23,"id":09,"name":"huawei"}] | orderBy:"id"}}<br>
+<!--根据id降序排列-->
+{{ [{"age":20,"id":10,"name":"iphone"},{"age":18,"id":11,"name":"sunxing"},{"age":23,"id":09,"name":"huawei"}] | orderBy:"id":true}}<br>
+{{"123456789" | limitTo:6}}
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('costCtrl', function($scope,$location,$http) {
+$scope.names=[{"age":20,"id":10,"name":"iphone"},{"age":18,"id":11,"name":"sunxing"},{"age":23,"id":09,"name":"huawei"}];
+$scope.doct="liwen";
+$scope.url=$location.absUrl();
+$http({
+	method:"post",
+	url:""
+}).then(function successCallback(response){
+	
+},
+function errorCallback(response){
+	
+}
+)
+  }).filter("reverse",function(){
+  	return function(val){
+  		return val.split("").reverse().join("");
+  	}
+  });
+ 
+
+</script>
+<!--<script>
+function aa(){
+	for(i=0;i<10;i++){
+		document.write("*");
+//			return;
+//    continue;
+//break;
+	}
+return;
+}
+aa();
+</script>-->
+
+</body>
+</html>

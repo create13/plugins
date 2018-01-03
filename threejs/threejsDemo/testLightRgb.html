@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="js/three.js" ></script>
+		<script>
+		var scene=new THREE.Scene();
+		var renderer=new THREE.WebGLRenderer();
+		renderer.setSize(window.innerWidth,window.innerHeight);
+		document.body.appendChild(renderer.domElement);
+		renderer.setClearColor(0x000000);
+		var camera=new THREE.PerspectiveCamera(24,window.innerWidth/window.innerHeight,1,1000);
+		camera.position.set(3,5,15);
+		camera.lookAt(new THREE.Vector3(0,0,0));
+		var sphere=new THREE.Mesh(new THREE.SphereGeometry(3,8,6,Math.PI/6,Math.PI/3),
+		//phong材质
+		new THREE.MeshPhongMaterial({ 
+		//color:new THREE.Color({r:255, g: 0, b: 0}),
+		color:new THREE.Color(255,0,0),
+		specular: new THREE.Color({r:255, g: 0, b: 0}),
+		//specular: new THREE.Color({r:1, g: 0, b: 0}),
+		// specular 镜面反射系数 由于漫反射部分与 Lambert 模型是一致的，因此，如果不指定镜面反射系数，而只设定漫反射，其效果与 Lambert 是相同的
+		//可以通过 shininess 属性控制光照模型中的 n 值，当 shininess 值越大时，高光的光斑越小，默认值为 30 。
+		shininess:20
+		})
+		);
+		var light = new THREE.AmbientLight(0x404040,1); // 环境光 强度1
+		scene.add( light );
+		var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );   //平行光 强度1
+		directionalLight.position.set( 10000, 100000, 10000 );
+		scene.add( directionalLight );
+
+		scene.add(camera);
+		scene.add(sphere);
+		renderer.render(scene,camera);
+		//r: 0.137255, g: 0.403922, b: 0.870588, o: 0.6
+		</script>
+	</body>
+</html>
+

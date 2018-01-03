@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据列表功能</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <link rel="stylesheet" href="css/dataTables.bootstrap.css">
+
+</head>
+<body>
+<table class="table table-responsive table-striped table-hover table-bordered" id="tableData">
+    <thead>
+<tr>
+    <th>序列码</th>
+    <th>作者</th>
+    <th>标题</th>
+    <th>描述</th>
+    <th>星标</th>
+    <th>url地址</th>
+</tr>
+    </thead>
+    <tbody id="tB">
+
+    </tbody>
+</table>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.dataTables.js"></script>
+<script src="js/jquery.dataTables.js"></script>
+<script>
+   $(function () {
+       //调取数据接口
+       function dataProject() {
+           $.ajax({
+               type:"post",
+               url:"http://192.168.1.202:8082/BIMplatform/project/queryAllProject.do",
+               dataType:"json",
+               data:{},
+               success:function (data) {
+                   var dataB= eval(data.data);
+                   console.log(dataB);
+                   var item;
+//                   for(i=0;i<dataB.length;i++){
+//                    item+="<tr><td>dataB[i].pid</td></tr>"
+//
+//
+//                   }
+                   for ( var i = 0; i < dataB.length; i++) {
+                       var row_data = {
+                           "pid": dataB[i]["pid"],
+                           "author": dataB[i]["author"],
+                           "title":  dataB[i]["title"],
+                           "description": dataB[i]["description"],
+                           "stars": dataB[i]["stars"],
+                           "picUrl": dataB[i]["picUrl"]
+                       }
+
+                       table.row.add(row_data).draw().node();
+                   }
+               },
+               error:function(e){
+                   alert("接口调用出错");
+               }
+           });
+       };
+       //创建table
+       var table = $("#tableData").DataTable({
+           searching:false,
+           info:true,
+           bPaginate:true,
+           aLengthMenu:[[5,10,15,20,-1],["5条","10条","15条","20条","全部"]],
+           sPaginationType: "bootstrap",
+           columns:[
+               {data:"pid"},
+               {data:"author"},
+               {data:"title"},
+               {data:"description"},
+               {data:"stars"},
+               {data:"picUrl"}
+           ],
+           oLanguage:{
+               sLengthMenu:"展示 _MENU_ 数据",
+               sZeroRecords: "对不起，查询不到任何相关数据",
+               sInfo:"当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+               sInfoEmpty: "显示第 0 至 0 条记录，共 0条",
+               sProcessing: "正在载入数据...",
+               oPaginate:{
+                   "sFirst":    "第一页",
+                   "sPrevious": " 上一页 ",
+                   "sNext":     " 下一页 ",
+                   "sLast":     " 最后一页 "
+               }
+           },
+           pagingType: "full_numbers"//分页样式的类型
+       });
+       dataProject();
+   });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+/* pages/events/index.wxss */
+#red{
+  background:red;
+  width:100%;
+  height:200px;
+  }
+#yellow{
+  background:yellow;
+  width:80%;
+  height:120px;
+  margin:10%;
+}
+#blue{
+  background:blue;
+  width:60%;
+  height:80px;
+  margin-left:20%;
+  padding-top:60px;
+  }

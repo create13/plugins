@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<!--<video src="video/Monitor02.mp4" autoplay="autoplay" loop="loop" controls style="width: 400px;margin-left: 10px;text-align: center;border:1px solid red;"></video>-->
+	<video src="video/1.mp4" width="500" height="300" style="border:1px solid red;" autoplay="autoplay" loop="loop" controls></video>
+	</body>
+	<script>
+
+　　try {
+　　　　document.writeln("开始执行try块语句 ---> ")
+　　　　document.writeln("还没有发生例外 ---> ")
+　　 　　alert((prompt("输入一个值：","")))
+　　 } catch(err) {
+　　 　　document.writeln("捕捉到例外，开始执行catch块语句 --->");
+　　 　　document.writeln("错误名称: " + err.name+" ---> ");
+　　 　　document.writeln("错误信息: " + err.message+" ---> ");
+　　} finally {
+　　 　　document.writeln("开始执行finally块语句")
+　　}
+
+
+	</script>
+</html>

@@ -1,0 +1,7 @@
+ view{
+  height:180px;
+}
+#red{
+  background: red;
+} 
+#green{background:green}

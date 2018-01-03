@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="js/three.js" ></script>
+		<script>
+			var scene=new THREE.Scene();
+			var renderer=new THREE.WebGLRenderer();
+			renderer.setSize(400,400);
+			document.body.appendChild(renderer.domElement);
+			var camera=new THREE.PerspectiveCamera(75,4/4,1,1000);
+			camera.position.z=5;
+			scene.add(camera);
+			var cube=new THREE.Mesh(new THREE.CubeGeometry(1,2,3),
+			new THREE.MeshBasicMaterial({
+				color:0xff00,
+//				wireframe: true
+			})
+		);
+		scene.add(cube);
+		renderer.render(scene,camera);
+		</script>
+	</body>
+</html>

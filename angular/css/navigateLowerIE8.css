@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0px; padding:0px;}
+body{ font-family:'微软雅黑';background:#f2f2f2;font-size:14px;}
+img{ border:0px; vertical-align:middle;}
+input,select,textarea{ outline:none;box-shadow:none!important;}
+li{ list-style:none;}
+a:link{text-decoration:none; outline:none;}
+a:visited,a:hover,a:active{text-decoration:none; outline:none;}
+.pr{ position:relative;}
+
+
+.g_Content{ width:1200px; height:auto; margin:0px auto;}
+.g_Contsubnav{ width:180px; height:auto;}
+.g_ContRight{ width:1005px; height:auto;}
+.g_head{ width:1200px; height:60px; margin:0px auto;}
+.g_current{ width:1200px; height:auto; margin:0px auto;}
+.g_foot{ width:1200px; height:auto; margin:0px auto;}
+.nav-tabs{ width:1200px; height:auto; margin:0px auto;}
+.g_row3 li{ width:120px;margin-right:6px;}

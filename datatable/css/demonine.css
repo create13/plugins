@@ -1,0 +1,30 @@
+*{margin:0px;padding:0px;}
+.hideC{width:200px;height:100%;}
+.hideBtn{width:200px;height:200px;float:left;}
+.hideBtn1{width:200px;height:200px;position:absolute;left:0px;bottom:0px;}
+.containT{width:1000px;height:100%;margin:0px auto;}
+.containT table{width:100%;}
+.containT table tr{width:1000px;height:210px;}
+.containT table tr td{width:300px;height:210px;background-color:#369DBD;}
+.containT table tr td.redbg{background-color:red;}
+.containT table tr td .iconSet{width:100%;height: 160px;padding-top: 40px;text-align: center;}
+.containT table tr td .fontWz{width:100%;height:50px;line-height:50px;color:white;font-size: 39px;text-indent: 10px;}
+/*.containT table tr td .controlS{display:none;}*/
+.containT table tr td a{text-decoration:none;}
+        @font-face {font-family: "iconfont";
+          src: url('../font/iconfont.eot'); /* IE9*/
+          src: url('../font/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+          url('../font/iconfont.woff') format('woff'), /* chrome, firefox */
+          url('../font/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+          url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+        .iconfont {
+          font-family:"iconfont" !important;
+          font-size: 155px;
+          font-style:normal;
+          -webkit-font-smoothing: antialiased;
+          -webkit-text-stroke-width: 0.2px;
+          -moz-osx-font-smoothing: grayscale;
+          color: #fff;
+        }

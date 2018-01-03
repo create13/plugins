@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+	</head>
+	<body>
+<button id="create">增加</button>
+<button id="del">删除</button>
+<button id="change1">改</button>
+<button id="search1">查</button>
+		  </table>
+<script>
+	var aa = [10, "aa", 20, 30, "bb"];
+	document.write(aa);
+	$("#create").click(function() {
+		aa.push("增加");
+		alert(aa);
+	})
+	$("#del").click(function() {
+		aa.pop();
+		alert(aa);
+	})
+	$("#change1").click(function() {
+		aa.pop();
+		aa.push("change");
+		alert(aa);
+	})
+	$("#search1").click(function() {
+		alert(aa);
+	})
+</script>
+
+	</body>
+</html>

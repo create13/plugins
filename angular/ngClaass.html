@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<style>
+			.error {
+				background-color: red;
+			}
+			
+			.warning {
+				background-color: yellow;
+			}
+		</style>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<div ng-controller="headerController" ng-app="myApp">
+			<div ng-class='{error:isError,warning:isWarning}'>{{messageText}}</div>
+			<button ng-click="showError()">error</button>
+			<button ng-click="showWarning()">warning</button>
+		</div>
+			<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script>
+	var app = angular.module("myApp", []);
+		app.controller("headerController", function($scope) {
+			$scope.isError = false;
+			$scope.isWarning = false;
+			$scope.showError = function() {
+
+				$scope.messageText = "this is an error";
+				$scope.isError = true;
+				$scope.isWarning = false;
+			}
+			$scope.showWarning = function() {
+				$scope.messageText = "just a warning";
+				$scope.isError = false;
+				$scope.isWarning = true;
+			}
+				$scope.showError();
+					$scope.showWarning ();
+				
+		});
+	</script>
+	</body>
+</html>

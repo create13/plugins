@@ -1,0 +1,30 @@
+var fs = require("fs");
+
+var path = "./dataFile/";        //path为你要读取的文件路径
+var pathSet;
+var dataSave= [];
+function explorer(path){
+    fs.readdir(path, function(err,files) {
+
+
+        if (err) {
+            console.log("error:\n" + err);
+            return;
+        }
+
+
+        files.forEach(function(file){
+	console.log(file);       //file为读取到的内容
+            pathSet = '\'Operation/dataFile/'+ file+'\'';
+            dataSave.push(pathSet);
+        });
+
+        console.log(dataSave.toString());
+
+    });
+}
+
+explorer(path);
+
+//在webstorm 中按下F12控制台 输入node 和该js所在的文件名  例如这段js在change.js中  即运行
+node change.js  即可以看到该文件夹下的所有路径名称 可以粘贴拿到你想要应用的位置 

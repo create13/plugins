@@ -1,0 +1,10 @@
+ <view>名字：{{ me.name }}</view>
+<view id='{{myid}}'>{{arr[0].name}}</view>
+<button bindtap='changeColor'>点击变色</button>
+<view wx:if="{{false}}">show me</view>
+<template name="t1">
+<view>
+{{name}} - {{age}}
+</view>
+</template>
+<template is="t1" data="{{...me}}" />

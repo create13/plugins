@@ -1,0 +1,731 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>人力资源管理平台</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+jQuery(document).ready(function($) {
+	$('.theme-login').click(function(){
+		$('.hb-popover-mask').fadeIn(100);
+		$('.hb-popover').slideDown(200);
+	})
+	$('.hb-poptit .close').click(function(){
+		$('.hb-popover-mask').fadeOut(100);
+		$('.hb-popover').slideUp(200);
+	})
+
+})
+
+$(function () {
+            $(".g_subnav li").click(function () {
+				$(".g_subnav ul li a").removeClass("actived");
+                $(this).siblings().removeClass();  
+                $(this).toggleClass("actived");
+                 
+            })
+
+			$(".nav li").click(function () {
+				window.scrollTo(0,0);
+				if($("#lc_sq").length>0){
+					$(".g_subnav ul li a").removeClass("actived");
+                	$(".g_subnav1 ul").children().eq(0).children().addClass("actived");
+				}
+				if($("#lc_db").length>0){
+					$(".g_subnav ul li a").removeClass("actived");
+                	$(".g_subnav2 ul").children().eq(0).children().addClass("actived");
+				}
+              })
+			
+			
+        });
+</script>
+
+
+<style>
+:target{padding-top: 175px; margin-top:-175px; position:relative; z-index:-1;}
+</style>
+
+<!--[if lte IE 8]>
+<link href="css/navigateLowerIE8.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+</head>
+
+<body>
+<!--header-->
+<div class="g_header">
+  <div class="g_head">
+    <div class="g_logo pull-left"><img src="images/logo.png">人力资源管理平台</div>
+    <div class="g_menu pull-left">
+      <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">员工自助</a></li>
+        <li><a href="#">经理自助</a></li>
+        <li class="dropdown">
+                <a href="#" class="dropdown-toggle hover" data-toggle="dropdown">
+                    流程中心
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">流程申请</a></li>
+                    <li><a href="#">流程待办</a></li>
+                    <li><a href="#">流程已办</a></li>
+                    <li><a href="#">我的申请</a></li>
+                    <li><a href="#">流程落地</a></li>
+                </ul>
+            </li>
+        <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    绩效管理
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">日常绩效管理</a></li>
+                    <li><a href="#">试用期绩效管理</a></li>
+                </ul>
+            </li>
+        <li><a href="#">HR用户</a></li>
+        <li><a href="#">HR资料</a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="g_drop pull-right">
+       <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    seanna.qi
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" style="min-width:130px;left:-30px; text-align:center;">
+                    <li><a href="#">个人信息</a></li>
+                    <li><a href="#">帮助文档</a></li>
+                    <li><a href="#">退出系统</a></li>
+                </ul>
+            </li>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!--header-->
+<!--当前位置-->
+<div class="g_currentWrap">
+<div class="g_current">
+<span><img src="images/img_01.png" width="20" height="20"></span><a href="#">首页</a>&gt;<a href="#">流程中心</a></div>
+</div>
+<!--当前位置 end-->
+<!--内容-->
+
+<div class="g_Content">
+<div class="nav-tabsWrap">
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active"><a href="#lc_sq" data-toggle="tab">流程申请</a></li>
+    <li><a href="#lc_db" data-toggle="tab">流程待办</a></li>
+    <li><a href="#lc_yb" data-toggle="tab">流程已办</a></li>
+    <li><a href="#wd_sq" data-toggle="tab">我的申请</a></li>
+    <li><a href="#lc_ld" data-toggle="tab">流程落地</a></li>
+</ul>
+</div>
+ <div style="height:140px;"></div>
+<div id="myTabContent" class="tab-content">
+<!--流程申请-->
+ <div class="tab-pane fade in active" id="lc_sq" style="position:relative; z-index:7">
+
+        <!--内容左侧 导航-->
+      <div class="g_Contsubnav pull-left pr" style="margin-top:20px; position:fixed; z-index:7;">
+     <p class="g_subnav-img"><img src="images/img_03.jpg" ></p>
+     <div class="g_subnavTi">流程申请</div>
+     <div class="g_subnav g_subnav1">
+        <ul class="mydh" style="display: none;">
+            <li><a href="#section-1" class="actived">个人申请</a></li>
+            <li><a href="#section-2">为Ta申请</a></li>
+        </ul>
+         <ul class="ie8dh" style="display: none;">
+             <li><a href="javascript:;" class="actived" onclick="ie8('section-1')">个人申请</a></li>
+             <li><a href="javascript:;" onclick="ie8('section-2')">为Ta申请</a></li>
+         </ul>
+     </div>
+    </div>
+        <!--内容左侧 导航end-->
+        <!--内容右侧-->
+        <div class="g_ContRight pull-right">
+        <div class="height20"></div>
+        <div id="section-1" name="section-1"></div>
+     <div class="g_ContRight01 g_ContRight02">
+     <div class="g_ContRightTi mar0">个人申请</div>
+      <div class="g_row">
+      <ul>
+      <li><a href="#"><p class="g_icon g_icon01"></p><p>加班</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon02"></p><p>请假</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon03"></p><p>考勤异常</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon04"></p><p>销假</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon05"></p><p>收入证明</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon06"></p><p>人事证明</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon07"></p><p>户口迁入</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon08"></p><p>劳动合同使用</p></a></li>
+      </ul>     
+      <div class=" clearfix"></div>
+   </div>
+
+     </div>
+      <div class="height20" ></div>
+      <div id="section-2" name="section-2"></div>
+   <div class="g_ContRight01 g_ContRight02">
+     <div class="g_ContRightTi mar0">为Ta申请</div>
+      <div class="g_row">
+      <ul>
+      <li><a href="#"><p class="g_icon g_icon01"></p><p>加班</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon02"></p><p>请假</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon03"></p><p>考勤异常</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon04"></p><p>销假</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon05"></p><p>收入证明</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon06"></p><p>人事证明</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon07"></p><p>户口迁入</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon08"></p><p>劳动合同使用</p></a></li>    
+      <li><a href="#"><p class="g_icon g_icon09"></p><p>事假超期</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon10"></p><p>内部惩罚</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon11"></p><p>离职</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon12"></p><p>转正</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon13"></p><p>青岛转正</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon14"></p><p>职位调整</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon15"></p><p>薪资调整</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon16"></p><p>职等职级调整</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon17"></p><p>作业员调整</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon18"></p><p>技工后勤调整</p></a></li>
+      <li><a href="#"><p class="g_icon g_icon19"></p><p>来华就业手续</p></a></li>
+       </ul>
+       <div class="clearfix"></div>
+   </div>
+
+     </div>
+   </div>
+        <!--内容右侧 end--> 
+        <div class="clearfix"></div>
+    </div>
+<!--流程申请 end-->
+<!--流程待办-->
+  <div class="tab-pane fade" id="lc_db"  style="position:relative; z-index:6;">
+        <!--内容左侧 导航-->
+        <div class="g_Contsubnav pull-left pr" style="margin-top:20px;position:fixed; z-index:7;">
+     <p class="g_subnav-img"><img src="images/img_03.jpg" ></p>
+     <div class="g_subnavTi">流程待办</div>
+     <div class="g_subnav g_subnav2">
+        <ul class="mydh" style="display: none;">
+           <li><a href="#section-3" class="actived">加班</a></li>
+           <li><a href="#section-4">请假</a></li>
+           <li><a href="#">销假</a></li>
+           <li><a href="#">收入证明</a></li>
+        </ul>
+        <ul class="ie8dh" style="display: none;">
+             <li><a href="javascript:;" class="actived" onclick="ie8('section-3')">加班</a></li>
+             <li><a href="javascript:;" onclick="ie8('section-4')">请假</a></li>
+             <li><a href="javascript:;">销假</a></li>
+           	 <li><a href="javascript:;">收入证明</a></li>
+         </ul>
+     </div>
+     <p class="g_subnav-botttom">未显示的流程，表示您无此类型的待办</p>
+    </div>
+        <!--内容左侧 导航end-->
+        <!--内容右侧-->
+         <div class="g_ContRight pull-right">
+        <div class="height20"></div>
+        <div id="section-3" name="section-3"></div>
+         <div class="g_ContRight01 g_ContRight03">
+     <div class="g_ContRightTi">加班</div>
+    <form class="form-inline g_mar01" role="form">
+          <label class=" pull-left" for="name" style="padding-left:0px;">加班类型：</label>
+          <select class="form-control input-sm g_input02 pull-left">
+            <option>01-休息日加班</option>
+            <option>02-休息日加班</option>
+            <option>03-休息日加班</option>
+            <option>04-休息日加班</option>
+            <option>05-休息日加班</option>
+          </select>
+          <label class="pull-left" for="inputfile">起始日期：</label>
+          <div class="g_input01wrap pull-left">
+                  <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+                  <input type="text" class="form-control g_input01" placeholder="2017-08-01">
+              </div>
+         <label class="pull-left" for="inputfile">结束日期：</label>
+          <div class="g_input01wrap pull-left">
+                  <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+                  <input type="text" class="form-control g_input01" placeholder="2017-08-01">
+              </div>
+          <button type="submit" class="btn btn-default g_btn01 pull-left">搜索</button>
+        <div class="clearfix"></div>
+      </form>
+
+<div class="g_tableTop"><button type="button" onClick="javascript:;" class="theme-login pull-right g_tableTopbtn02"><span class="glyphicon glyphicon-remove"></span>拒绝</button> <button type="button" class="pull-right g_tableTopbtn01"><span class="glyphicon glyphicon-ok"></span>批准</button>
+<div class="hb-popover">
+     <div class="hb-poptit">
+          <a href="javascript:;" title="关闭" class="close">×</a>
+          弹出页标题
+</div>
+<p class="hb-txt">您选择了拒绝员工刘晓飞的加班申请，是否继续？</p>
+<button type="button" class="hb-Btn">是</button>
+<p class="hb-link"><a href="#">否，关闭返回</a></p>
+</div>
+
+
+<span style="margin-right:30px;"><input name="" type="checkbox" class="checkAll">选中第一页</span><input name=""  type="checkbox">选中前五页 </div>
+ <table class="table table-striped table-hover g_table02" id="j_tb">
+   <tbody>
+    <tr>
+      <th width="3%" ><input name="subBox" type="checkbox" class="checkAll"></th>
+      <th width="8%" >流程ID</th>
+      <th width="8%" >流程状态</th>
+      <th width="10%" >发起人</th>
+      <th width="10%" >提交日期</th>
+      <th width="20%">当前审批人</th>
+      <th width="8%" >员工ID</th>
+      <th width="7%" >姓名</th>
+      <th width="9%" >加班类型</th>
+      <th width="10%">开始日期</th>
+      <th width="7%">操作</th>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+     <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+      
+    
+  </tbody>
+</table>
+<!--分页-->
+<div class="g_page text-center bor01">
+<span>共有100条,每页展示15条</span>
+<ul class="pagination pagination-sm">
+    <li class="disabled li01"><a href="#">&laquo;</a></li>
+    <li class="disabled"><a href="#">◀</a></li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li class="col005"><a href="#">▶</a></li>
+    <li class="li01"><a href="#">&raquo;</a></li>
+</ul>
+<span><input name="" type="text"><button name="" type="button">GO</button></span>
+</div>
+<!--分页 end-->
+     </div>
+        <div class="height20"></div>
+        <div id="section-4" name="section-4"></div>
+         <div class="g_ContRight01 g_ContRight03">
+     <div class="g_ContRightTi">请假</div>
+    <form class="form-inline g_mar01" role="form">
+          <label class=" pull-left" for="name" style="padding-left:0px;">加班类型：</label>
+          <select class="form-control input-sm g_input02 pull-left">
+            <option>01-休息日加班</option>
+            <option>02-休息日加班</option>
+            <option>03-休息日加班</option>
+            <option>04-休息日加班</option>
+            <option>05-休息日加班</option>
+          </select>
+          <label class="pull-left" for="inputfile">起始日期：</label>
+          <div class="g_input01wrap pull-left">
+                  <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+                  <input type="text" class="form-control g_input01" placeholder="2017-08-01">
+              </div>
+         <label class="pull-left" for="inputfile">结束日期：</label>
+          <div class="g_input01wrap pull-left">
+                  <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+                  <input type="text" class="form-control g_input01" placeholder="2017-08-01">
+              </div>
+          <button type="submit" class="btn btn-default g_btn01 pull-left">搜索</button>
+        <div class="clearfix"></div>
+      </form>
+
+<div class="g_tableTop"><button type="button" onClick="javascript:;" class="theme-login pull-right g_tableTopbtn02"><span class="glyphicon glyphicon-remove"></span>拒绝</button> <button type="button" class="pull-right g_tableTopbtn01"><span class="glyphicon glyphicon-ok"></span>批准</button>
+<div class="hb-popover">
+     <div class="hb-poptit">
+          <a href="javascript:;" title="关闭" class="close">×</a>
+          弹出页标题
+</div>
+<p class="hb-txt">您选择了拒绝员工刘晓飞的加班申请，是否继续？</p>
+<button type="button" class="hb-Btn">是</button>
+<p class="hb-link"><a href="#">否，关闭返回</a></p>
+</div>
+
+
+<span style="margin-right:30px;"><input name="" type="checkbox" class="checkAll">选中第一页</span><input name=""  type="checkbox">选中前五页 </div>
+ <table class="table table-striped table-hover g_table02" id="j_tb">
+   <tbody>
+    <tr>
+      <th width="3%" ><input name="subBox" type="checkbox" class="checkAll"></th>
+      <th width="8%" >流程ID</th>
+      <th width="8%" >流程状态</th>
+      <th width="10%" >发起人</th>
+      <th width="10%" >提交日期</th>
+      <th width="20%">当前审批人</th>
+      <th width="8%" >员工ID</th>
+      <th width="7%" >姓名</th>
+      <th width="9%" >加班类型</th>
+      <th width="10%">开始日期</th>
+      <th width="7%">操作</th>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+     <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+    <tr>
+      <td><input name="subBox" type="checkbox" value=""></td>
+      <td>13432074</td>
+      <td>正在处理</td>
+      <td>wingle.wang</td>
+      <td>2017-07-29</td>
+      <td>baton.luo , wendy.wang</td>
+      <td>0000474</td>
+      <td>刘乃宇</td>
+      <td>休息日加班</td>
+      <td>2017-07-29</td>
+      <td><a href="#" class="g_table02link">查看</a></td>
+    </tr>
+      
+    
+  </tbody>
+</table>
+<!--分页-->
+<div class="g_page text-center bor01">
+<span>共有100条,每页展示15条</span>
+<ul class="pagination pagination-sm">
+    <li class="disabled li01"><a href="#">&laquo;</a></li>
+    <li class="disabled"><a href="#">◀</a></li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li class="col005"><a href="#">▶</a></li>
+    <li class="li01"><a href="#">&raquo;</a></li>
+</ul>
+<span><input name="" type="text"><button name="" type="button">GO</button></span>
+</div>
+<!--分页 end-->
+     </div>
+
+   </div>
+        <!--内容右侧 end-->
+        <div class="clearfix"></div> 
+    </div>
+<!--流程待办end-->
+<!--流程已办-->
+    <div class="tab-pane fade" id="lc_yb">
+        流程已办
+    </div>
+<!--流程已办end-->
+<!--我的申请-->
+    <div class="tab-pane fade" id="wd_sq">
+       我的申请
+    </div>
+<!--我的申请 end-->
+<!--流程落地-->
+    <div class="tab-pane fade" id="lc_ld">
+        流程落地
+    </div>
+<!--流程落地end-->  
+</div>
+
+  <div class="clearfix"></div>
+</div>
+<!--内容end-->
+<!--footer-->
+<div class="footer">
+   <div class="g_foot">
+   <ul>
+      <li><p>潍坊：0086-xxxx-88888888</p><p>薪酬：0086-xxxx-88888888</p><p>北京：0086-xxxx-88888888</p><p>韩国：0086-xxxx-88888888</p></li>
+      <li><p>招聘：0086-xxxx-88888888</p><p>考勤：0086-xxxx-88888888</p><p>上海：0086-xxxx-88888888</p><p>日本：0086-xxxx-88888888</p></li>
+      <li><p>培训：0086-xxxx-88888888</p><p>组织职位：0086-xxxx-88888888</p><p>深圳：0086-xxxx-88888888</p><p>台湾：0086-xxxx-88888888</p></li>
+      <li><p>绩效：0086-xxxx-88888888</p><p>账户权限：0086-xxxx-88888888</p><p>青岛：0086-xxxx-88888888</p><p>香港：0086-xxxx-88888888</p></li>
+      </ul>      
+      <div class="clearfix"></div>s
+   </div>
+</div>
+<!--footer end-->
+
+<div class="hb-popover-mask"></div>
+<script>
+   $(function() {
+           $(".checkAll").click(function() {
+                $('input[name="subBox"]').attr("checked",this.checked); 
+            });
+            var $subBox = $("input[name='subBox']");
+            $subBox.click(function(){
+                $(".checkAll").attr("checked",$subBox.length == $("input[name='subBox']:checked").length ? true : false);
+            });
+        });		
+ </script>
+
+ 
+<script type="text/javascript">
+    if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/8./i)=="8.")
+    {
+        $(".mydh").hide();
+        $(".ie8dh").show();
+    }else{
+        $(".mydh").show();
+        $(".ie8dh").hide();
+    }
+    function ie8(m){
+        if(m == "section-1"){
+            window.scrollTo(0,0);
+        }
+        if(m == "section-2"){
+            var h = $(".g_ContRight02").height();
+            window.scrollTo(0,h+40);
+        }
+		if(m == "section-3"){
+            window.scrollTo(0,0);
+        }
+        if(m == "section-4"){
+            var h = $(".g_ContRight03").height();
+            window.scrollTo(0,h+40);
+        }
+    }
+</script>
+ 
+ 
+</body>
+</html>
