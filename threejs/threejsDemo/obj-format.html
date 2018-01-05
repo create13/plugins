@@ -5,9 +5,7 @@
 		<meta charset="UTF-8">
 		<title>插入obj格式</title>
 		<script type="text/javascript" src="js/three.js" ></script>
-        <!--<script src="js/Stats.js"></script>-->
-		<!--<script src="js/tween.min.js"></script>-->
-<script type="text/javascript" src="js/OBJLoader.js" ></script>
+		<script type="text/javascript" src="js/OBJLoader.js" ></script>
 
 		
 		<style type="text/css">
@@ -48,18 +46,10 @@
 
             var camera;
             function initCamera() {
-                camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
-                camera.position.x = 100;
+                camera = new THREE.PerspectiveCamera(60, width / height, 1, 10000);
+                camera.position.x = 900;
                 camera.position.y = 300;
-                camera.position.z = 900;
-//              camera.up.x = 0;
-//              camera.up.y = 1;
-//              camera.up.z = 0;
-//              camera.lookAt({
-//                  x : 0,
-//                  y : 0,
-//                  z : 0
-//              });
+                camera.position.z = 5000;
 camera.lookAt(new THREE.Vector3(-1.22, 2.18, 4.58));
 }
 
@@ -99,32 +89,14 @@ function initObject() {
                     box.center( objMesh.position ); 
                     
                     objMesh.position.multiplyScalar( - 2 );
-                    scene.add( pivot );
-					box.center( pivot.position); 
-					objMesh.position.z=-200;
-					// 辅助坐标
-//					axis1 = new THREE.AxisHelper(100);
-//					axis1.position.copy( pivot.position );
-//					scene.add( axis1 );
-//					
-//					axis2 = new THREE.AxisHelper(100);
-//					axis2.position.copy( objMesh.position );
-//					scene.add( axis2 );
+                    scene.add(pivot);
+					box.center(pivot.position); 
+					objMesh.position.z=200;
 					
 
                 });
 
-
-                // 立方体
-                var geometry = new THREE.BoxGeometry( 30, 30, 30 );
-//              for ( var i = 0; i < geometry.faces.length; i += 2 ) {
-//
-//                  var hex = Math.random() * 0xffffff;
-//                  geometry.faces[ i ].color.setHex( hex );
-//                  geometry.faces[ i + 1 ].color.setHex( hex );
-//
-//              }
-//              
+     			var geometry = new THREE.BoxGeometry( 30, 30, 30 );             
                 var material = new THREE.MeshBasicMaterial( { vertexColors: THREE.FaceColors} );
                 boxMesh = new THREE.Mesh( geometry,material);
                 boxMesh.position = new THREE.Vector3(0,0,0);
@@ -156,7 +128,6 @@ function initObject() {
             // 帧循环、游戏循环
             function animation()
             {
-				//mesh.rotation.y +=0.01;
                 boxMesh.rotateY(0.01);
                 if(pivot != undefined){
                     pivot.rotateY(0.01);
