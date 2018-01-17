@@ -1,0 +1,22 @@
+{
+  "name": "wp",
+  "version": "1.0.0",
+  "description": "webpack",
+  "main": "bundle.js",
+  "dependencies": {
+    "css-loader": "^0.28.8",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "jquery": "^3.2.1",
+    "webpack-dev-server": "^2.10.1"
+  },
+  "scripts": {
+//  "start":"webpack-dev-server --entry ./src/js/index.js --output-filename ./dist/bundle.js",
+//		"build":"webpack --watch"
+		"test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lw",
+  "license": "ISC"
+}
