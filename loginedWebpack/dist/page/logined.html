@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html id=login>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <script type="text/javascript" src="../dist/bundle.js" ></script>
+<!--	<link rel="stylesheet" href="../css/mobase750.css" />
+	<link rel="stylesheet" href="../css/nf_login.css" />-->
+</head>
+<body ng-app="app" ng-controller="con1">
+	<div class="mb-bv">
+		<!--加载中-->
+		<div class="spinner">
+  			<div class="spinner-container container1">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+  		</div>
+ 		 <div class="spinner-container container2">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+  		</div>
+  		<div class="spinner-container container3">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+  		</div>
+		</div>
+		正在加载中
+	</div>
+	<div class="page-start">
+		<div class="page-all">
+			<div class="page-form">
+				<form class="formgroup" novalidate="novalidate" name="myform" id="myForm">
+					<div class="bluesquare1 fn-clear">
+						<label for="nv-name" class="labeleft">姓名</label>
+						<i class="right-icon1 icon1-name"></i>
+						<input type="text" id="nv-name" name="name" class="nv-input1" required="required" ng-model='username' />
+					</div>
+					<div class="bluesquare1">
+						<label for="nv-name" class="labeleft">大区</label>
+						<i class="right-icon1 icon1-name1"></i>
+						<select id="nv-loca" name="location" class="nv-input1" ng-model='area' >
+							<option value="东区" selected="selected">东区</option>
+							<option value="南区" selected="selected">南区</option>
+							<option value="北区" selected="selected">北区</option>
+							<option value="西区" selected="selected">西区</option>
+							<option value="其他地区" selected="selected">其他地区</option>
+						</select>
+					</div>
+					<div class="bluesquare1">
+						<label for="nv-name" class="labeleft">邮箱</label>
+						<i class="right-icon1 icon1-name2"></i>
+						<input type="email" id="nv-email" name="email" class="nv-input1" required="required"  ng-model='email'/>
+					</div>
+					<div class="bluesquare">
+						<label for="nv-name" class="labetime">入职时间</label>
+						<i class="right-icon1 icon1-name3"></i>
+						<input type="date" id="nv-date" name="date" class="nv-input2" required="required" ng-model='time'/>
+						
+					</div>
+					<div class="bluesquared">
+						<input type="text" id="nv-language" name="language" data-max="20" placeholder="2018怒放宣言（20字以内）" required ng-model='title'/>
+					</div>
+					<div class="btnpic" id="btnPic">
+						上传照片
+						<img src="data:image/png;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJpbWFnZXMvMTNjNTYxNzUubmZfaW5kZXhfaWNvbjUucG5nIjs=" alt="" title="" class="smallpic" />
+						<div class="btnfile" >
+							<input type="file" upload id="upload" />
+						</div>
+					</div>
+					<div class="fontsize">
+						点击上传一张美美的个人照片，您的靓照会出现在年会大屏幕上呦
+					</div>
+					<div class="btnsub" id="btnSubmit" ng-click="commit()">
+						提　交
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<!--	<script type="text/javascript" src="../js/jquery-2.2.4.min.js"></script>-->
+    <!--<script type="text/javascript" src="../js/dpr.js" ></script>-->
+ <!--   <script type="text/javascript" src="../js/html5validate.js" ></script>-->
+  <!--  <script type="text/javascript" src="../js/logined.js" ></script>-->
+</body>
+</html>
