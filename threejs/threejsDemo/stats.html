@@ -3,20 +3,23 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<script type="text/javascript" src="js/three.js" ></script>
+		<script type="text/javascript" src="js/stats.min.js" ></script>
 	</head>
 	<body>
-		<script type="text/javascript" src="js/three.js" ></script>
 		<script>
-		//场景
+					//场景
 			var scene=new THREE.Scene();
 			//渲染器
 			var renderer=new THREE.WebGLRenderer();
 			renderer.setSize(500,500);
 			document.body.appendChild(renderer.domElement);
 			renderer.setClearColor(0x000000);
+			//相机
 			var camera=new THREE.PerspectiveCamera(20,5/5,0.1,1000);
 			camera.position.set(0,0,400);
 			camera.lookAt(new THREE.Vector3(0,0,0));
+			// 物体
 			var geometry=new THREE.CubeGeometry(10,10,10);
 			var texture=new THREE.TextureLoader().load('img/img1.jpg');
 			var mesh=new THREE.MeshBasicMaterial({
@@ -25,15 +28,27 @@
 			var cube=new THREE.Mesh(geometry,mesh);
 			scene.add(camera);
 			scene.add(cube);
+			//stats
+			var stats = null;
+			function init(){
+				stats = new Stats();
+				stats.domElement.style.position = 'absolute';
+				stats.domElement.style.top = '0px';
+				stats.domElement.style.right = '0px';
+				document.body.appendChild(stats.domElement);
+			}
+			init();
+			//render
 			function render(){
+				stats.begin();
 				requestAnimationFrame(render);
 				cube.rotation.x+=0.1;
 				cube.rotation.y+=0.1;
 				renderer.render(scene,camera);
+				stats.end();
 			
 			}
 			render();
-				
 		</script>
 	</body>
 </html>
