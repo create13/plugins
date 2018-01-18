@@ -1,5 +1,5 @@
 html#login,#login body{width: 100%;height: 100%;overflow: hidden;}
-body{background-image: url(../dist/images/c81d2aae.nv_index_bg.jpg);background-size:100% 100%;background-position:0 0;background-repeat: no-repeat;}
+body{background-image: url(../images/nv_index_bg.jpg);background-size:100% 100%;background-position:0 0;background-repeat: no-repeat;}
 .page-start{position:absolute;top: 3.4rem;bottom:0;right:0;left:0;padding-bottom: .4rem;}
 .page-all{width:76%;margin:0 auto 0;}
 .formgroup .bluesquare{width:100%;height:0.88rem;border:1px solid #0075A9;border-radius:5px;margin-top:0.13rem;padding:.2rem .7rem .2rem 1.35rem;}
