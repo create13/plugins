@@ -11036,6 +11036,34 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArCAYAAADh
 /* 16 */
 /***/ (function(module, exports) {
 
+(function (doc, win) {
+        var docEl = doc.documentElement,
+                dpr = 1,
+                tid,
+                scale = 1 / dpr;
+        var metaEl = doc.createElement('meta');
+        metaEl.name = "viewport";
+        metaEl.content = 'initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale;
+        docEl.firstElementChild.appendChild(metaEl);
+        var recalc = function () {
+            var deviceWidth = docEl.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            docEl.style.fontSize = deviceWidth / 7.5 + 'px';
+        };
+        recalc();
+
+        win.addEventListener('resize', function() {
+            clearTimeout(tid);
+            tid = setTimeout(recalc, 300);
+        }, false);
+
+    })(document, window);
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
 /*! jquery-html5Validate.js 基于HTML5表单验证的jQuery插件
  * Create by zhangxinxu(.com) on 2012-12-05
  * Move to Github ( https://github.com/zhangxinxu/html5Validate ) on 2014-12-17
@@ -11594,34 +11622,6 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArCAYAAADh
 		}
 	});
 })(jQuery);
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-(function (doc, win) {
-        var docEl = doc.documentElement,
-                dpr = 1,
-                tid,
-                scale = 1 / dpr;
-        var metaEl = doc.createElement('meta');
-        metaEl.name = "viewport";
-        metaEl.content = 'initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale;
-        docEl.firstElementChild.appendChild(metaEl);
-        var recalc = function () {
-            var deviceWidth = docEl.clientWidth;
-            if (deviceWidth > 750) deviceWidth = 750;
-            docEl.style.fontSize = deviceWidth / 7.5 + 'px';
-        };
-        recalc();
-
-        win.addEventListener('resize', function() {
-            clearTimeout(tid);
-            tid = setTimeout(recalc, 300);
-        }, false);
-
-    })(document, window);
-
 
 /***/ }),
 /* 18 */

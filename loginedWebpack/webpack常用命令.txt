@@ -1,0 +1,15 @@
+确保电脑中安装好nodejs npm webpack
+配置好环境变量 $npm install webpack -g
+$npm install webpack --save-dev
+通过webpack -v npm -v查看版本和是否安装成功
+ 
+1.$mkdir 文件名 （新建一个文件）
+2.$webpack index.js bundle.js  (将index.js打包成bundle.js)
+3.$npm init -f(自动创建package.json文件)
+4.在package.json的同级目录下手动创建webpack.config.js文件 输入对应内容
+5.$npm install css-loader style-loader（css加载器）
+6.$npm install url-loader（图片加载器）
+7.$npm install file-loader（图片加载器）
+8.$npm install jquery --save-dev（jquery插件）
+9.$npm install extract-loader（将 javascript 解析为合适的 html 文件，确保引用的图片指向正确的路径）
+10.$npm install html-loader（解决html中img标签图片不显示的问题 html加载器）
