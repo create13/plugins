@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue进阶 组件开发与通信</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app1">
+			{{message}}
+			<!--v-bind: 可以缩写成:   v-on缩写成@-->
+			<first-com></first-com>
+			<child-form></child-form>
+			<second-com com-msg="hello" :second-param="forComParam"></second-com>
+			<hello-com v-bind:msg="param" good="ni h"></hello-com>
+			<hr />
+		</div>
+		<script>
+		Vue.component('first-com',{
+			template:'<div><h1>这是第一个全局组件{{voice}}{{count}}</h1><button @click="addOne">点我加1</button></div>',
+			data:function(){
+				return {
+					voice:"我是component中的值",
+					count:1
+				}
+			},
+			methods:{
+				addOne:function(){
+					this.count++
+				}
+			}
+		});
+		Vue.component('second-com',{
+			props:["comMsg","secondParam"],
+			template:'<div>{{comMsg}}<p>{{secondParam}}</p></div>'
+		});
+		Vue.component('hello-com',{
+			props:{
+				msg:String,
+				good:{
+					type:String,
+					required:true
+				}
+			},
+			template:"<h1>{{msg}}</h1>"
+		});
+		var child = {
+			template:"<div>这是一个局部组件</div>"
+		};
+			var v1 = new Vue({ 
+				el:"#app1",
+				/*生命周期*/
+				beforeCreated:function(){
+					console.log("beforeCreated");
+				},
+				created:function(){
+					console.log("created");
+				},
+				beforeMount:function(){
+					console.log("beforeMount");
+				},
+				mounted:function(){
+					console.log("mounted");
+				},
+				beforeUpdate:function(){
+					console.log("beforeUpdate");
+				},
+				updated:function(){
+					console.log("updated");
+				},
+				beforeDestroy:function(){
+					console.log("beforeDestroy");
+				},
+				destroyed:function(){
+					console.log("destroyed");
+				},
+				/*生命周期结束                               */
+				data:{
+					message:"第一个作用域",
+					forComParam:"测试props",
+					param:'abcs',
+					test:"测试生命周期"
+				},
+				components:{
+					"child-form":child
+				}
+			});
+			
+
+		</script>
+	</body>
+</html>

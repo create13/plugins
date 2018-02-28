@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+		<style>
+			.redC{
+				width: 100px;
+				height:100px;
+				border: 1px solid red;
+				transition-duration: 1s;
+			}
+			.bigger{
+				width: 300px;
+				height:200px;
+			}
+			.blueBox{
+				background-color: deepskyblue;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!--vue 2.0介绍-->
+<!--		<div id="app">
+			{{message}}
+			{{doc}}
+		</div>-->
+		
+		<!--模板语法-->
+<!--		<div id="app">
+			<div>{{message}}</div>
+			<div v-once>只描绘一次：{{message}}</div>
+			<hr>
+			<div>{{htmlMsg}}</div>-->
+			
+			 <!--html输出-->
+<!--			<div v-html = "htmlMsg"></div>
+			<button v-bind:disabled="flag">按钮</button>
+			<hr>-->
+				
+			<!--表达式-->
+<!--			<p>加法的结果是：{{x+y}}</p>
+			<p>{{isMan?"男生":"女生"}}</p>
+			<p>{{strText.split('').reverse().join('')}}</p>
+	</div>-->
+	
+	<!--vue条件分支指令-->
+<!--	<div id="app">
+			<p v-if="flag">测试v-if</p>
+			<p v-if="level===1">这是管理员</p>
+			<p v-else-if="level===2">这是普通用户</p>
+			<p v-else>对不起，您没有权限</p>
+			<hr>
+			<p v-show="level===1">我可以显示</p>
+		</div>-->
+	
+	<!--循环指令-->
+<!--	<div id="app">
+		<ul>
+			<li v-for="item in message">
+				{{item}}
+			</li>
+		</ul>
+		<ul>
+			<li v-for="(item,index) in message">
+				第{{index+1}}内容是{{item}}
+			</li>
+		</ul>
+		<div v-for="item in person">
+			{{item}}
+		</div>
+		<div v-for="(item,key,index) in person">
+			序号{{index}}---{{key}}:{{item}}
+		</div>
+		<p v-for="n in 10">{{n}}</p>   
+	</div>-->
+	
+	<!--事件处理-->
+	<!--v-on 简写@ 例如v-on:click 可以简写成 @click -->
+<!--	<div id="app">
+		<button v-on:click="sayHi">提交</button>
+		<button @click="resetV">重置</button>-->
+		<!--阻止冒泡-->
+<!--		<div v-on:click="sayStop">
+			<button v-on:click.stop="sayStop">阻止冒泡</button>
+		</div>-->
+		<!--阻止默认事件-->
+		<!--<a href="https://www.baidu.com" @click.prevent="sayHi">百度跳转</a>-->
+		<!--事件监听-->
+		<!--<div @click.capture="parentSay">
+			<button @click.stop="sayHi">事件捕获</button>
+		</div>-->
+		<!--只有事件在该元素本身(比如不是子元素)触发时触发回调-->
+		<!--<div v-on:click.self="sayHi" style="border:1px solid royalblue; padding: 20px;">
+			<button>self测试</button>
+		</div>-->
+		<!--只触发一次 表单提交或者扣款的时候这个按钮防止多次传递后台 扣除多次款或者加大后台处理-->
+		<!--<button @click.once="sayHi">once</button>
+		<h2>按键修饰符</h2>
+		<input type="text" @keyup.enter="sub" />
+	</div>-->
+	
+	<!--表单输入绑定-->
+	
+<!--	<div id="app">
+		<input type="text" v-model="text1" />
+		<p>{{text1}}</p>
+		<hr />
+		<textarea v-model="longText"></textarea>
+		<p style="white-space: pre-line;">{{longText}}</p>
+		<hr />
+		<input type="checkbox" value="good" v-model="ck" />
+		{{ck}}
+		<div v-if="ck">
+			要显示的大段内容
+		</div>
+		<label><input type="radio" v-model="hobit" value="旅游" />旅游</label>
+		<label><input type="radio" v-model="hobit" value="看电影" />看电影</label>
+		<label><input type="radio" v-model="hobit" value="健身" />健身</label>
+		{{hobit}}
+		<hr />
+		onchage事件改变的时候才会改变
+		<input type="text" v-model.lazy="lazyvalue" />
+		{{lazyvalue}}
+		<input type="text" v-model.number="x" />
+		+
+		<input type="text" v-model.number="y" />
+		={{x+y}}
+		<hr />
+		<input type="text" v-model.trim="tValue" />
+		<p style="white-space: pre-line;">{{tValue}}</p>
+	</div>-->
+	
+	<!--样式表处理-->
+	
+	<div id="app">
+		<!-- v-bind绑定class-->
+<!--		<div v-bind:class="{redC:isFlag,bigger:bigFlag}"></div>
+		<hr />
+		<div v-bind:class="objClass"></div>
+		<hr />
+		<div v-bind:class="[cls1,cls2]"></div>-->
+		<!-- v-bind绑定style-->
+<!--		<div v-bind:style="{height:hg,width:wt,background:bg}"></div>
+		<div v-bind:style="[xss,oss]"></div>-->
+		
+		<!--计算属性-->
+<!--	<input type="text" v-model="fullNm" />
+		<p>{{reversedMsg}}</p>
+		<p>{{reversedMsgs()}}</p>
+		<p>{{fullName}}</p>
+		<p>{{fullNm}}</p>-->
+		
+		<!--过滤器-->
+		
+		<input type="text" v-model="message" />
+		<hr>
+		{{message | capitalize}}
+		<hr>
+		{{message | reverse}}
+	</div>
+	
+		<script>
+		/*vue 2.0介绍*/
+/*			var app = new Vue({
+				el:'#app',
+				data:{
+					message:'hello Vue',
+					doc:'我是vue'
+				}
+			});*/
+			
+			/*模板语法*/
+/*			var v = new Vue({
+				el:"#app",
+				data:{
+					message:'你好',
+					htmlMsg:"<h1>我是h1</h1><input type = 'text'>",
+					flag:true,
+					x:12,
+					y:13,
+					isMan:true,
+					strText:"abcdefg"
+				}
+			});*/
+			
+			/*vue条件分支指令*/
+/*			var s = new Vue({
+				el:'#app',
+				data:{
+					flag:false,
+					level:1
+				}
+			});*/
+			
+			/*循环指令*/
+			
+/*			var t = new Vue({
+				el:'#app',
+				data:{
+					message:["今天","明天","昨天"],
+					person:{
+						name:'lee',
+						age:18,
+						sex:'男'
+					}
+				}
+			});*/
+			
+			/*事件处理*/
+			
+/*			var r = new Vue({
+				el:'#app',
+				methods:{
+					sayHi:function(){
+						alert("success");
+					},
+					resetV:function(){
+						alert("reset");
+					},
+					sayStop:function(){
+						alert("阻止冒泡");
+					},
+					parentSay:function(){
+						alert("parentSay");
+					},
+					sub:function(){
+						alert("提交完成");
+					}
+				}
+			});*/
+			
+			/*表单输入绑定*/
+			
+/*			var i = new Vue({
+				el:'#app',
+				data:{
+					text1:"hello",
+					longText:'这是一段很长很长的文字',
+					ck:false,
+					hobit:'',
+					lazyvalue:"init",
+					x:0,
+					y:1,
+					tValue:"1111"
+				},
+				methods:{
+					
+				}
+			});*/
+			
+			/*样式表处理 v-bind绑定class*/
+			
+/*			var c = new Vue({
+				el:'#app',
+				data:{
+					isFlag:true,
+					bigFlag:false,
+					objClass:{redC:true,bigger:true},
+					cls1:"blueBox",
+					cls2:"bigger",
+					hg:"20px",
+					wt:"20px",
+					bg:"yellow",
+					xss:{
+						height:"50px",
+						width:"50px"
+					},
+					oss:{
+						background:"green",
+						transform:"rotate(50deg)"
+					}
+				},
+				methods:{
+					
+				}
+			});*/
+			
+			/*计算属性*/
+			
+			var i = new Vue({
+				el:'#app',
+				data:{
+					message:"你好",
+					firstName:'baby',
+					familyName:'lee',
+					fullName:''
+				},
+				methods:{
+					reversedMsgs:function(){
+						return this.message.split("").reverse().join("");
+						console.log("这是methods");
+					}
+				},
+				computed:{
+					reversedMsg:function(){
+						return this.message.split("").reverse().join("");
+						console.log("这是computed");
+					},
+	/*				fullNm:function(){
+						return this.familyName + this.firstName;
+					}*/
+					fullNm:{
+						get:function(){
+							return this.familyName + this.firstName;
+						},
+						set:function(val){
+							var arr = val.split(" ");
+							this.familyName = arr[0];
+							this.firstName = arr[1];
+						}
+					}
+				},
+				watch:{
+					firstName:function(val){
+						this.fullName = this.familyName + val;
+					},
+					familyName:function(val){
+						this.fullName = this.firstName + val;
+					}
+				},
+				filters:{
+					capitalize:function(val){
+						return val.charAt(0).toUpperCase() + val.slice(1);
+					},
+					reverse:function(val){
+						return val.split('').reverse().join('');
+					}
+				}
+			});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>slot</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<my-comp>
+				<h1>这是替换slot的内容</h1>
+				<p>这是啊啊啊</p>
+			</my-comp>
+<!--			<named-comp>
+				<h1 slot="hd">这是个头部</h1>
+				<p>这是正文</p>
+			</named-comp>-->
+		</div>
+		<script>
+				Vue.component("my-comp",{
+					template:"<div>这是一个组件<slot>这是slot的默认文字</slot></div>"
+				});
+				Vue.component("named-comp",{
+					template:
+					"<div>
+							<header>
+								<slot name="hd">aaa</slot>
+							</header>
+							<section>
+								<slot></slot>
+							</section>
+						</div>"
+				});
+				var v  = new Vue({
+					el:"#app"
+				});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+v-model
+v-model.
+lazy  懒模式 只在onchage事件时出发
+number  转换成数字
+trim	去掉前后空格
+
+v-once
+v-bind
+v-if
+v-else-if
+v-else
+v-show
+v-for
+v-on 简写@
+v-on:click.
+stop   阻止冒泡
+prevent  默认事件
+capture  监听
+self   自身触发
+once    触发一次

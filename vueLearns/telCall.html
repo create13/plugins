@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>非父子组件通信</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app1">
+			<button @click="increment">+1</button>
+		</div>
+		<div id="app2">
+			{{total}}
+		</div>
+		<script>
+		var bus = new Vue();
+			var v1 = new Vue({
+				el:"#app1",
+				data:{},
+				methods:{
+					increment:function(){
+						// emit
+						bus.$emit("inc",1)
+						
+					}
+				}
+			});
+			var v2 = new Vue({
+				el:"#app2",
+				data:{
+					total:0
+				},
+				mounted:function(){
+					var that = this;
+					bus.$on("inc",function(count){
+						that.total += count;
+					})
+				}
+				
+			});
+		</script>
+	</body>
+</html>

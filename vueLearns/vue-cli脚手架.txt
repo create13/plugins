@@ -1,0 +1,7 @@
+cmd安装
+npm install -g vue-cli
+cd 项目所在目录
+vue init webpack 项目名（项目名里面不能有空格）
+cd 项目名
+npm install
+npm run dev

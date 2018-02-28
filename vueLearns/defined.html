@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义事件</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{total}}
+			{{sum}}
+			<br />
+			<my-counter v-on:inc="gIncrement"></my-counter>
+			<my-counter v-on:click.native="gIncrement"></my-counter>
+			<my-counter v-bind:t.sync="sum"></my-counter>
+			<my-check v-model="checked"></my-check>
+			{{checked}}
+		</div>
+		<script>
+		Vue.component("my-counter",{
+			template:"<button v-on:click='incrementComp'>+1</button>",
+			props:['t'],
+			methods:{
+				incrementComp:function(){
+					this.$emit("inc");
+					this.$emit("update:t",this.t+2);
+				}
+			}
+		});
+		Vue.component("my-check",{
+			template:"<input type='checkbox' :checked='chk' @change='$emit(\"change\",$event.target.checked)' />",
+			model:{
+				prop:"chk",
+				event:'change'
+			},
+			props:{
+				chk:Boolean
+			}
+		});
+			var v = new Vue({
+				el:'#app',
+				data:{
+					total:0,
+					sum:2,
+					checked:true
+				},
+				methods:{
+					gIncrement:function(){
+						this.total++;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
