@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/three.js" ></script>
+		<script type="text/javascript" src="js/OrbitControls.js" ></script>
+	</head>
+	<body onkeypress="key(event)">
+		<script>
+		function key(event){
+        	var keyePresed = window.event.keyCode;
+        	if(keyePresed == 61){
+			 /* alert(keyePresed);*/
+			  fov -= 1;
+			  camera.fov = fov;
+			  camera.updateProjectionMatrix();
+              renderer.render(scene, camera);
+        	}
+        }
+		</script>
+	</body>
+</html>
