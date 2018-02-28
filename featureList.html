@@ -68,7 +68,7 @@
                     pageNum:~~(params.offset/10)+1||1
                 }
             }, */
-            // sidePagination: "client"注掉，并且下面注掉的部分加上就是服务器端请求数据，否则是前端请求数据方法
+            // sidePagination: "client"注掉，并且下面注掉的部分加上就是服务器端请求数据，否则是前端请求数据方法 bootstrapTable
             dataField:'list',
             responseHandler:function(res){
                 return res.data;
