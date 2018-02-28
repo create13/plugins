@@ -1,0 +1,108 @@
+/*字体*/
+@font-face {
+		font-family:PingFang Light;
+	    src: url("../font/PingFang Light.ttf");
+}
+@font-face {
+		font-family:PingFang Medium1;
+		src: url("../font/PingFang Medium.otf");
+}
+@font-face {
+		font-family:PingFang Regular;
+		src: url("../font/PingFang Regular.otf");
+}
+@font-face {
+		font-family:PingFang-SC-Semibold;
+		src: url("../font/PingFang-SC-Semibold.otf");
+}
+/*通配符*/
+html,body, div, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,table,th,td,select,img{margin: 0; padding:0;font-family:'PingFang Regular';}
+html,body{height:100%;position:static;background-color:#F4F4F4;}
+/*内容*/
+.outerMost{margin:0px auto;position:absolute;top:0px;left:0px;right:0px;}
+.header-center{height:70px;background-color:#9b9b9b;color:#fff;}
+.header-center .colorSize{display:inline-block;width:98px;height:40px;line-height:40px;margin-top:15px;margin-left:30px;font-size:18px;}
+.header-centered{width:100%;height:54px;background-color:#FFFFFF;}
+.header-center1{width:calc(50% - 1.5px);height:54px;text-align:center;color:#444;line-height:54px;position:relative;float:left;}
+.colorLine{display:inline-block;width:100%;height:2px;background-color:#2fd5a9;position:absolute;left:0px;top:52px;}
+.header-center1 .fontSize{display:inline-block;width:100%;height:52px;line-height:52px;text-align:center;position:absolute;left:0px;top:0px;font-size:18px;}
+.verticaLine{width:3px;height:34px;margin-top:6px;background-color:#ccc;position:absolute;left:calc(100% - 1.5px);}
+.calW{width:calc(50% - 1.5px);color:#999;}
+.calW .colorLine{display:none;}
+/*main*/
+.main{width:100%;height:180px;margin-top:13px;background-color:#fff;}
+.main-top{width:100%;height:120px;position:relative;border-bottom: 1px solid #F0F0F0;}
+.main-topLeft{width:90px;height:120px;position:absolute;left:0px;}
+.main-topLeft .square-blue{margin-left:38px;margin-top:20px;width:21px;height:21px;border:2px solid #000000;border-radius:4px;}
+.square-blue .insideColor{width:15px;height:15px;margin-top:3px;margin-left:3px;background-color:#2FD5A9;border-radius:2px;}
+.main-topLeft .line{width:3px;height:33px;background-color:#4a4a4a;margin-left:48.5px;}
+.main-topLeft .square-pink{margin-left:38px;margin-top:0px;width:21px;height:21px;border:2px solid #000000;border-radius:4px;}
+.square-pink .insideColor{width:15px;height:15px;margin-top:3px;margin-left:3px;background-color:#ff9d8a;border-radius:2px;}
+.main-topRight{position:absolute;width:calc(100% - 90px);left:90px;color:#AAAAAA;font-size:18px;line-height:59px;}
+.main-topRight .right-top{width:100%;height:60px;border-bottom:1px solid #F0F0F0;}
+.main-topRight .right-topEnd{width:100%;height:60px;border-bottom:1px solid #F0F0F0;}
+.mainSecond{height:60px;width:100%;position:relative;}
+.secondLeft img{position:absolute;width:24px;height:24px;left:38px;top:18px;}
+/*.secondLeft img{width:100%;}*/
+.dateGo{position:absolute;width:calc(100% - 90px);left:90px;color:#AAAAAA;font-size:18px;line-height:60px;}
+/*content*/
+.content{margin-top:13px;height:120px;width:100%;background-color:#fff;}
+.location{height:60px;border-bottom: 1px solid #F0F0F0;position:relative;}
+.location-left{width:183px;height:60px;position:absolute;}
+.location-pic img{width:24px;height:24px;margin-left:27px;padding-top:18px;float:left;}
+.location-wz{margin-left:14px;font-size:18px;color:#444444;float:left;line-height:59px;}
+.location-right{width:110px;height:59px;line-height:59px;position:absolute;right:30px;color:#aaa;font-size:16px;}
+.location-right span{display:inline-block;float:left;}
+.location-right img{width:20px;height:20px;margin-left:10px;float:left;margin-top:20px;}
+.btnC{width:90%;height:60px;color:#fff;font-family:"PingFang-SC-Semibold";background-color:#2FD5A9;border-radius:4px;text-align:center;line-height:60px;margin:5%;box-shadow: none;border: hidden;font-size:23px;}
+/*footer*/
+.footer{height:66px;width:100%;background-color:#fff;border-top:1px solid #BFBFBF;position:fixed;bottom:0px;}
+.footer .footer-detail{width:33%;height:66px;border-right:1px solid #b6b6b6;float:left;overflow:hidden;}
+.footer-detail .leftPic{width:120px;height:52px;top:7px;line-height:52px;text-align:center;position:relative;left: calc(50% - 60px);}
+.footer-detail .leftPic img{width:36px;height:36px;top:8px;position:absolute;left:0px;}
+.footer-detail .leftPic .footerSize{height:42px;color:#666666;position:absolute;top:0px;left:39px;font-size:24px;}
+.footer .footer-detail:nth-last-child(1){border-right: hidden;}
+@media only screen and (min-width: 230px) and (max-width: 320px) {
+	.btnC{height:40px;line-height:40px;font-size:16px;margin-top:6px;}
+	.footer-detail .leftPic{width:87px;left: calc(50% - 43.5px);}
+	.footer-detail .leftPic img{width:30px;height:30px;top:11px;}
+	.footer-detail .leftPic .footerSize{font-size:16px;left:33px;}
+}
+@media only screen and (min-width: 321px) and (max-width: 370px) {
+	.header-center .colorSize,.header-center1 .fontSize,.main-topRight,.dateGo,.location-wz{font-size:15px;}
+	.btnC{font-size:18px;}
+	.location-right{font-size:14px;}
+	.footer-detail .leftPic{width:87px;left: calc(50% - 43.5px);}
+	.footer-detail .leftPic img{width:30px;height:30px;top:11px;}
+	.footer-detail .leftPic .footerSize{font-size:18px;left:33px;}
+}
+@media only screen and (min-width: 371px) and (max-width: 720px) {
+	.footer-detail .leftPic{width:94px;left: calc(50% - 47px);}
+	.footer-detail .leftPic img{width:28px;height:28px;top:12px;}
+	.footer-detail .leftPic .footerSize{font-size:21px;left:31px;}
+}
+@media only screen and (min-width: 721px) and (max-width: 1920px) {
+	.header-center{height: 120px;}
+	.header-center .colorSize{margin-top:40px;}
+	.header-centered{margin-top:25px;font-size:23px;height:66px;}
+	.header-center1{height:66px;}
+	.colorLine{height:3px; top:63px;}
+	.header-center1 .fontSize{line-height:63px;height:63px;font-size: 24px;}
+	.verticaLine{height:40px;top:7px;}
+	.main{height:225px;}
+	.main-top,.main-topLeft{height:150px;}
+	.main-topRight .right-top,.main-topRight .right-topEnd{height:75px;line-height:74px;}
+	.main-topLeft .square-blue{margin-top:27px;}
+	.main-topLeft .line{height:43px;}
+	.mainSecond{height:75px;}
+	.dateGo{line-height:75px;}
+	.secondLeft img{width:28px;height:28px;top:23.5px;}
+	.content{height:150px;}
+	.location,.location-left{height:75px;}
+	.location-pic img{width:28px;height:28px;padding-top:23.5px;}
+	.location-wz{line-height:74px;}
+	.location-right{height:74px;line-height:74px;font-size:18px;}
+	.location-right img{width:25px;height:25px;margin-top:25px;}
+	.btnC{height:70px;line-height:70px;font-size:25px;}
+}
+
