@@ -13,3 +13,4 @@ $npm install webpack --save-dev
 8.$npm install jquery --save-dev（jquery插件）
 9.$npm install extract-loader（将 javascript 解析为合适的 html 文件，确保引用的图片指向正确的路径）
 10.$npm install html-loader（解决html中img标签图片不显示的问题 html加载器）
+11.$npm install --save-dev clean-webpack-plugin   (删除每次打包产生的冗余文件，例如多次生成加密的bundle.js)

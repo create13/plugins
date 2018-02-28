@@ -1,3 +1,5 @@
+/*引入clean-webpack-plugin*/
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
 	entry:'./js/index.js',   //接入文件
 	output:{
@@ -13,7 +15,7 @@ module.exports = {
 			},
 			{
 				test: /\.(jpg|png|gif|svg|jpeg)$/,
-				loader: 'url-loader?name=images/[hash:8].[name].[ext]',	
+				loader: 'url-loader?name=images/[path][hash:8].[name].[ext]',	
 				//加载图片 并将文件名转码
 			},
 			{
@@ -24,5 +26,9 @@ module.exports = {
         		//file-loader 将结果写入 .html 文件。
       		}
 		]
-	}
+	},
+	plugins:[
+	/*插入想删除的文件路径*/
+		new CleanWebpackPlugin(['dist'])
+	]
 }

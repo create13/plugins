@@ -4,13 +4,13 @@
   "description": "",
   "main": "bundle.js",
   "scripts": {
-    "build":"webpack --watch"
-    
+    "build": "webpack --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jquery": "^3.2.1"
+    "clean-webpack-plugin": "^0.1.18",
+    "on-build-webpack": "^0.1.0"
   }
 }

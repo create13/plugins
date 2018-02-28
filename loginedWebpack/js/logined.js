@@ -10,6 +10,7 @@ $(function(){
  				$(".mb-bv").show();
 	 		}else{
 	 				$("#nv-loca").testRemind('请选择大区');
+	 				alert("请填写");
 	 		}
 		}
 	})
