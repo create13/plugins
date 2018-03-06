@@ -10,10 +10,20 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+    	'/api':{   //匹配需要代理服务的路径
+    		//目标服务器
+    		target:"http://shared-bike.herokuapp.com",
+    		//需要虚拟目标站点
+    		changeOrigin:true,
+    		//重写的路径
+    		pathRewrite:{ '^/api':'/api' }
+    	}
+    },
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    /*host: 'localhost',*/ // can be overwritten by process.env.HOST
+    env:require('./dev.env'),
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
