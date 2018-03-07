@@ -18,7 +18,7 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/detail/:id',
+      path: '/detail/:id/:detail',
       name: 'Detail',
       component: Detail
     }

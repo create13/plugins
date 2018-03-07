@@ -14,13 +14,17 @@ export default {
   },
   methods:{
   		// 编写自定义函数,创建标注
-	addMarker(map,point){
+	addMarker(map,point,data){
 		var myIcon = new BMap.Icon(bikeLogo,new BMap.Size(32,32),{
 			anchor: new BMap.Size(10,25)
 		});
 		//创建标注对象并添加到地图
 		var marker = new BMap.Marker(point,{icon:myIcon});
 		map.addOverlay(marker);
+		var that = this;
+		marker.addEventListener("click",function(){
+			that.$router.push({name:"Detail",params:data});
+		})
 	}
   },
   mounted() {
@@ -48,7 +52,7 @@ export default {
 		}).then( json => {
 			for(var i=0;i<json.length;i++){
 				var point1 = new BMap.Point(json[i].lng, json[i].lat);
-				self.addMarker(map,point1);
+				self.addMarker(map,point1,json[i]);
 			}
 
 

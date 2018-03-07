@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue事件</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="itany">
+			<button @click="print($event)">click me</button>
+		</div>
+		<script>
+			let vm = new Vue({
+				el:'#itany',
+				data:{
+					
+				},
+				methods:{
+					print(e){
+						console.log(e.target.innerHTML);  //dom对象
+						console.log(this);  //vue实例
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
