@@ -12,6 +12,9 @@
 			.bgColor{
 				background-color: #ccc;
 			}
+			[v-cloak]{
+				display:none;
+			}
 		</style>
 	</head>
 	<body>
@@ -30,11 +33,33 @@
 	<!--
 		style属性
 	-->
-	<p :style="xx">find</p>
-	<p :style="[xx,yy]">数组形式</p>
+<!--	<p :style="xx">find</p>
+	<p :style="[xx,yy]">数组形式</p>-->
 		
+		
+		<!--事件冒泡-->
+<!--		<div @click="write">
+			<p @click="print">
+				<button @click="show($event)">点击</button>
+			</p>
+		</div>-->
+		<!--阻止默认事件-->
+		<!--<a href="#" @click.prevent="study">我是链接</a>-->
+		<!--键盘事件 @keydown  @keypress  @keyup -->
+		<input type="text" @keydown="keyShow($event)" />
+		<!--简化按键的判断-->
+		<input type="text" @keydown.13="keyIf "/>
+				<input type="text" @keydown.a="keyTest "/>
+		<!--v-cloak要配合css的display:none一起用 否则不生效-->
+		<h3>aaa <span v-cloak>{{msg}}</span></h3>
+		<h3 v-text="msg"></h3>
 	</div>
 	<script>
+		/*自定义键位别名*/
+		Vue.config.keyCodes={
+			a:65,
+			f1:112
+		}
 		new Vue({
 			el:'#itany',
 			data:{
@@ -46,14 +71,44 @@
 				flag:true,
 				bgC:true,
 				num:3,
+				msg:"hello",
 				hello:{aa:true,cc:this.flag},
 				xx:{color:'blue',fonSize:'30px'},
 				yy:{backgroundColor:'yellow'}
 			},
 			methods:{
-				print(){
+				show(e){
 					console.log("111");
+					e.stopPropagation();  //原生js方式
+				},
+				print(){
+					console.log("222");
+				},
+				write(){
+					console.log("333");
+				},
+				study(e){
+					console.log("444");
+				/*	e.preventDefault(); */ //原生方式 阻止默认事件
+				},
+				keyShow(e){
+					console.log(e.keyCode);
+					if(e.keyCode == 13){
+						console.log("按了回车");
+					}
+				},
+				keyIf(){
+					console.log("按了回车");
+
+				},
+				keyTest(){
+					console.log("测试");
+
 				}
+
+			},
+			created(){
+				
 			}
 		});
 	</script>
