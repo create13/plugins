@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<title>vue学习</title>
+	</head>
+	<body>
+		<div class="itany">
+			{{msg}}   
+			<!--两对大括号{{}} 称为模板，用来进行数据的绑定显示在页面中-->
+			用户名：<input type="text" v-model="name" />
+			<br />
+			{{name}} <br />
+			{{age}} <br />
+			{{nums}} <br />
+			{{user}} <br />
+			<ul>
+				<!--可以直接循环包含重复数据的集合 可以通过指定:key属性绑定唯一key 当重复元素时可重用元素 提高效率-->
+				<li v-for="(v,k) in arr2" :key='k'>{{k}}={{v}}</li>
+				<li v-for="value in arr">{{value}}</li>
+				<li v-for="info in user">{{info}}</li>
+				<li v-for="(v,k) in user">{{k}}={{v}}</li>
+				<li v-for="(user,index) in users">
+					{{index+1}},{{user.id}},{{user.name}},{{user.age}}
+				</li>
+			</ul>
+			<button v-on:click="show">点我</button>
+			<button v-on:click="add()">添加</button>
+			<!--方法的括号加不加都可以 如果不传参数的话-->
+			{{arr}}
+			<button @click="hide">切换</button>
+			<div v-show="flag">欢迎来到南京</div>
+		</div>
+
+		<script>
+		
+			window.onload = function(){
+				//配置是否允许vue-devtools检查代码，方便调试，生产环境中需要设置false
+				Vue.config.devtools = false;
+				Vue.config.productionTip = false;  //阻止vue启动时生成生产消息
+		 let vm=new Vue({
+					el:".itany", //指定关联的元素   vue2.0中不允许挂载html body 元素 1.0是可以的
+					data:{   //存储数据
+						msg:"hello world",
+						name:'tom',
+						age:21,
+						nums:[12,4,23,5],
+						user:{id:125,name:'lw',age:24},
+						arr:[1,22,31,4,51,6,7],
+						arr2:[12,22,31,12,51,6,7],
+						users:[
+						{id:101,name:'ll',age:21},
+						{id:102,name:'hmm',age:24},
+						{id:103,name:'xl',age:26},
+						],
+						flag:true
+					},
+					methods:{
+						show:function(){
+							console.log("show方法");	
+						},
+						/*es6语法*/
+						add(){
+							console.log(this===vm); //true  使用this访问当前实例中的成员
+							this.arr.push(666); //或者vm.arr.push(666);
+						},
+						hide(){
+							vm.flag = !vm.flag;
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>计算属性</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="itany">
+			{{msg}}
+			<h1>{{reverseHello}}</h1>
+			<h1>{{reverseMsg}}</h1>
+			<button @click="change">修改msg值</button>
+			
+			<!--计算属性  vs 方法-->
+			<h1>{{num1}}</h1>
+			<h1>{{num2}}</h1>
+			<h2>{{getNum2()}}</h2>
+			<button onclick="fn()">测试</button>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:"#itany",
+				data:{
+					msg:'hello msg ww',
+					num1:6
+				},
+				methods:{
+					reverseHello(){
+						return this.msg.split(' ').reverse().join(' ');
+					},
+					change(){
+						this.msg="love y"
+					},
+					getNum2(){
+						console.log(new Date());
+						return this.num1-1;
+
+					}
+				},
+				computed:{
+					reverseMsg(){
+						/*可以包含逻辑处理操作，同时reverseMsg 依赖于msg*/
+					return this.msg.split(' ').reverse().join(' ');
+				},
+				num2(){
+					console.log(new Date());
+					return this.num1-1;
+
+				}
+				}
+			});
+			function fn(){
+				setInterval(function(){
+		/*			console.log(vm.getNum2());*/
+					console.log(vm.num2);
+				},1000)
+			}
+		</script>
+	</body>
+</html>

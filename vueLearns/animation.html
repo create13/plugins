@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>多元素动画以及结合animate的动画</title>
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<style>
+			p{
+				width:100px;
+				height:100px;
+				background-color: red;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="itany">
+			<button @click="flag=!flag">切换动画</button>
+<!--			<transition enter-active-class=" animated bounceInLeft" leave-active-class="animated bounceOutRight">
+				<p v-show="flag">块</p>
+			</transition>-->
+			
+<!--			<transition-group enter-active-class=" animated bounceInLeft" leave-active-class="animated bounceOutRight">
+				<p v-show="flag" :key="1">块</p>
+				<p v-show="flag" :key="2">块</p>
+			</transition-group>-->
+			<input type="text" v-model="name" />
+			<transition-group enter-active-class=" animated bounceInLeft" leave-active-class="animated bounceOutRight">
+				<p v-for="(v,k) in arr2" :key="k" v-show="flag">
+					{{v}}
+				</p>
+			</transition-group>
+		</div>
+		<script>
+			var vm = new Vue({
+				el:"#itany",
+				data:{
+					flag:true,
+					arr:['tom','jack','mike','alice','alex'],
+					name:''
+				},
+				methods:{
+					
+				},
+				computed:{
+					arr2(){
+						var temp=[];
+						this.arr.forEach( val =>{
+							if(val.includes(this.name)){
+								temp.push(val);
+							}
+						});
+						return temp;
+					}
+				},
+				directives:{
+					
+				}
+			});
+		</script>
+	</body>
+</html>

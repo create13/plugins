@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>过滤器</title>
+				<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="itany">
+			<h3>{{8 | addZero}}</h3>
+			<h3>{{12.09823 | num(3)}}</h3>
+			<!--<h2>{{currentTime}}</h2>-->
+			<h2>{{currentTime | dateS}}</h2>
+		</div>
+<script>
+			Vue.filter('addZero',function(data){
+			console.log(data);
+			return data<10?'0'+data:data;
+		});
+/*		Vue.filter('num',(data,n) =>{
+			console.log(data,n);
+			return data.toFixed(n);  //toFixed四舍五入
+		});*/
+		Vue.filter('dateS', data =>{
+			let d=new Date(data);
+				return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+		});
+						
+		new Vue({
+			el:"#itany",
+			data:{
+				currentTime:Date.now()
+			},
+			methods:{
+				
+			},
+			filters:{
+				num:(data,n) =>{
+					return data.toFixed(n); 
+				}
+			}
+		});
+</script>
+	</body>
+</html>

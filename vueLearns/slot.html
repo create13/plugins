@@ -11,28 +11,43 @@
 				<h1>这是替换slot的内容</h1>
 				<p>这是啊啊啊</p>
 			</my-comp>
-<!--			<named-comp>
-				<h1 slot="hd">这是个头部</h1>
-				<p>这是正文</p>
-			</named-comp>-->
+			<!--<my-components>wb12121</my-components>-->
+			<my-components>
+				<ul slot="s1">
+					<li>aaa</li>
+					<li>bbb</li>
+					<li>ccc</li>
+				</ul>
+				<ol slot="s2">
+					<li>111</li>
+					<li>222</li>
+					<li>333</li>
+				</ol>
+			</my-components>
 		</div>
+		<template id="hello">
+		<div>
+			<slot name="s2"></slot>
+			<h3>welcome</h3>
+			<h3><slot name='s1'>如果没有原内容则显示该内容</slot></h3>
+		</div>
+		</template>
 		<script>
 				Vue.component("my-comp",{
 					template:"<div>这是一个组件<slot>这是slot的默认文字</slot></div>"
 				});
-				Vue.component("named-comp",{
-					template:
-					"<div>
-							<header>
-								<slot name="hd">aaa</slot>
-							</header>
-							<section>
-								<slot></slot>
-							</section>
-						</div>"
-				});
 				var v  = new Vue({
-					el:"#app"
+					el:"#app",
+					components:{
+						'my-components':{
+							template:'#hello',
+							data(){
+								return {
+									
+								}
+							}
+						}
+					}
 				});
 		</script>
 	</body>

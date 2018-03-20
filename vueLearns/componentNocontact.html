@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>非父子组件之间的通信</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="itany">
+			<my-a></my-a>
+			<my-b></my-b>
+			<my-c></my-c>
+		</div>
+		<template id="a">
+			<div>
+				<h3>{{name}}</h3>
+			    <button @click="send">将a数据发送给c</button>
+			</div>
+		</template>
+		<template id="b">
+			<div>
+				<h3>{{age}}</h3>
+				<button @click="send">将b数据发送给c</button>
+			</div>
+		</template>
+		<template id="c">
+			<div>
+				<h3>{{sex}}</h3>
+				<h3>{{name}}</h3>
+				<h3>{{age}}</h3>
+			</div>
+		</template>
+		<script>
+		//定义一个空的vue实例
+		var Event = new Vue();
+			var vm = new Vue({
+				el:"#itany",
+				data:{
+					
+				},
+				methods:{
+					
+				},
+				computed:{
+					
+				},
+				directives:{
+					
+				},
+				components:{
+					'my-a':{
+						data(){
+							return {
+								name:'tom'
+							}
+						},
+						template:'#a',
+						methods:{
+							send(){
+								Event.$emit('data-a',this.name);
+							}
+						}
+					},
+					'my-b':{
+						data(){
+							return {
+								age:21
+							}
+						},
+						template:'#b',
+						methods:{
+							send(){
+							Event.$emit('data-b',this.age);
+							}
+						}
+					},
+					'my-c':{
+						data(){
+							return {
+								sex:'male',
+								name:'',
+								age:''
+							}
+						},
+						template:'#c',
+						mounted(){  //模板编译完成后执行
+							Event.$on('data-a',name => {
+								this.name = name;
+							});
+							Event.$on('data-b',age => {
+								this.age = age;
+							});
+						}
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

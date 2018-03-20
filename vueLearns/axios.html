@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue HTTP请求</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/axios.min.js" ></script>
+	</head>
+	<body>
+		<div id="itany">
+			<button @click="send">发送请求数据</button>
+			<button @click="sendGet">get发送请求数据</button>
+			<button @click="sendPost">Post发送请求数据</button>
+			Github ID: <input type="text" v-model='names' />
+			<button @click="getUsers(names)">显示详情</button>
+			姓名：{{user.name}}<br>
+			头像：{{user.avatar_url}}<br>
+			<img :src="user.avatar_url" />
+		</div>
+		<script>
+			new Vue({
+				el:'#itany',
+				data:{
+					names:'',
+					user:{}
+				},
+				methods:{
+					
+					send(){
+						axios({
+							method:'get',
+							url:'user.json'
+						}).then(function(res){
+							console.log(res);
+						}).catch(res =>{
+							console.log("请求失败"+res);
+						});
+					}, 
+					
+					/*方法1 url传参*/
+/*					sendGet(){
+					axios.get('server.php?name=tom&age=23').then(res =>{
+						console.log(res);
+					}).catch(err =>{
+						console.log("失败"+err);
+					})
+					},*/
+					/*方法2*/
+					sendGet(){
+					axios.get('server.php',{
+						params:{
+							name:'alice',
+							age:19
+						}
+					}).then(res =>{
+						console.log(res);
+					}).catch(err =>{
+						console.log("失败"+err);
+					})
+					},
+				sendPost(){
+					axios.post('server.php',{
+							name:'jack',
+							age:21
+					}).then(res =>{
+						console.log(res);
+					}).catch(err =>{
+						console.log("失败"+err);
+					})
+					},
+					getUsers(uid){
+						axios.get(`https://api.github.com/users/${uid}`).then(res =>{
+						console.log(res);
+						this.user=res.data;
+						})
+					}
+				}
+
+			});
+
+				</script>
+	</body>
+</html>

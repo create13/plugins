@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定义组件的两种方式</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="itany">
+			<my-component></my-component>
+			<my-word></my-word>
+			<button @click="flag='my-hello'">切换组件到hello</button>
+			<button @click="flag='my-we'">切换组件到we</button>
+			<div>
+				<!--使用keep-alive 组件缓存非活动组件，可以保留状态，避免重新渲染 默认每次都会销毁非活动组件并重新创建-->
+				<keep-alive>
+					<component :is="flag"></component>
+				</keep-alive>
+			</div>
+		</div>
+		<template id="arrDetail">
+			<!--<template>必须有且只有一个根元素-->
+			<div>
+				<h3>{{name}}</h3>
+				<ul>
+					<li v-for="val in arr">{{val}}</li>
+				</ul>
+			</div>
+		</template>
+		<script>
+		
+		/*方式1：先创建组件构造器，然后由组件构造器创建组件*/
+		/*1.使用Vue.extend()创建一个组件构造器*/
+		var myExtend = Vue.extend({
+			template:'<h2>hello world</h2>'
+		});
+		/*2.使用Vue.component，根据组件构造器来创建组件*/
+		Vue.component('val',myExtend)
+		/*方式2：直接创建组件（推荐）*/
+		Vue.component('my-component',{
+			template:'<h2>{{msg}}</h2>',
+			data(){  //在组件中存储数据时，必须以函数形式，函数返回一个对象
+				return {
+					 msg:'自定义的内容'
+				}
+			}
+		})
+		
+			var vm = new Vue({
+				el:"#itany",
+				data:{
+					msg:'hello',
+					name:'Alice',
+					flag:'my-hello'
+				},
+				methods:{
+					
+				},
+				computed:{
+					
+				},
+				directives:{
+					
+				},
+				components:{
+					"my-word":{
+						name:'com-name', //指定组件的名称，默认为标签名，可以不设置
+						template:'#arrDetail',
+						data(){
+							return {
+								name:'lucy',
+								arr:['tom','jack','mike']
+							}
+						}
+					},
+					"my-hello":{
+						name:'com-hello', //指定组件的名称，默认为标签名，可以不设置
+						template:'<h1>我是my-hello {{x}}</h1>',
+						data(){
+							return {
+								names:'mick',
+								x:Math.random()
+							}
+						}
+					},
+					"my-we":{
+						name:'com-we', //指定组件的名称，默认为标签名，可以不设置
+						template:'<h1>我是my-we {{y}}</h1>',
+						data(){
+							return {
+								names:'we',
+								y:Math.random()
+							}
+						}
+					}
+					
+				}
+			});
+		</script>
+	</body>
+</html>

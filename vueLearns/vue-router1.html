@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script src="js/vue-router.js"></script>
+		<style>
+			.active{
+				font-size:20px;
+				color:brown;
+				text-decoration:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="itany">
+			<div>
+				<!--通过rooter-link 组件来导航 通过传入to 属性指定链接router-link默认会被渲染成一个a标签
+				-->
+				<router-link to='/home'>主页</router-link>
+				<router-link to='/user'>用户</router-link>
+				
+			</div>
+			<div>
+				<transition enter-active-class="animated bounceInleft" leave-active-class="animated bounceOutRight">
+			<!--路由出口 router-view 路由匹配的组件将渲染在这里-->
+				<router-view></router-view>
+				</transition>
+			</div>
+			<br />
+			<button @click="addRouter">添加路由</button>
+			<button @click="reRouter">路由替换</button>
+		</div>
+		<template id="user">
+			<div>
+				<h3>用户信息</h3>
+				<ul>
+					<router-link to='/user/login?name=tom&pwd=123' tag="li">用户登录</router-link>
+					<router-link to='/user/regist/alice/456' tag="li">用户注册</router-link>
+	<!--				<li>
+						<router-link></router-link>
+					</li>-->
+				</ul>
+					<router-view></router-view>
+
+			</div>
+		</template>
+		<script>
+		//1.定义相应的组件
+		var home ={
+			template:'<h3>我是主页</h3>'
+		}
+		var user ={
+			template:'#user'
+		}
+		var Login ={
+			template:'<h2>用户登录   获取参数：{{$route.query}} 获取路由的url：{{$route.path}}</h2>'
+		}
+		var Regist ={
+			template:'<h2>用户注册  获取参数：{{$route.params}},获取路由的url：{{$route.path}}</h2>'
+		}
+		//2.配置路由
+		const routes=[
+			{
+				path:'/home',
+				component:home
+			},
+			{
+				path:'/user',
+				component:user,
+				children:[
+				{path:'login',
+				component:Login
+				},
+				{path:'regist/:username/:password',
+				component:Regist
+				}
+				
+				]
+			},
+			{
+				path:'*',
+				redirect:'/home'
+			}
+		]
+		//3.创建路由实例
+		const router=new VueRouter({
+			routes,//简写 相当于 routes:routes
+			/*mode:'history',*/  //更改模式 默认是hash
+			linkActiveClass:'active'  //更改活动链接的class类名
+		});
+		//4.创建根实例并将路由挂载到Vue实例上
+			var vm = new Vue({
+				el:"#itany",
+				router:router,  //注入路由
+				methods:{
+					addRouter(){
+						router.push({path:'home'}); //添加路由，切换路由			
+					},
+					reRouter(){
+						router.replace({path:'user'}) //替换路由 没有历史记录
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

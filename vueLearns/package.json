@@ -1,0 +1,19 @@
+{
+  "name": "elemennt-demo",
+  "version": "1.0.0",
+  "description": "*上手较难\r \t*指令以ng-xxx开头\r \t*所有属性和方法都存储在$scope中\r \t*由谷歌维护\r \t*报错不容易看懂\r #### vue\r \t*简单、易学、更轻量\r \t*指令以v-xxx开头\r \t*html代码+json数据，再创建一个vue实例\r \t*由个人维护  尤雨溪 目前就职于阿里巴巴 2014年2月开源了vue\r \t*报错可以看懂\r ### angular实现\r \tjs:\r \t    let app = angular.module('myApp',[]);\r \t    app.controller('myController',['$scope',function($scope){\r \t    \t$scope.msg=\"hello world\";\r \t    }]);\r \thtml:\r \t    <html ng-app=\"myApp\">\r \t    <div ng-conntroller=\"myController\">\r \t    \t{{msg}}\r \t    </div>\r \t    </html>",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "animate.css": "^3.6.1",
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "vue-resource": "^1.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

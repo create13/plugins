@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/axios.min.js" ></script>
+		<script type="text/javascript" src="js/vue-resource.min.js" ></script>
+		<style>
+			.current{
+				background-color: #CCCCCC;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="itany">
+			<input type="text" v-model="keyword" @keyup="getData($event)" @keydown.up.prevent="changeUp()" @keydown.down="changeDown()" />
+			<ul>
+				<li v-for="(value,index) in myData" :class="{current:index==now}">{{value}}</li>
+			</ul>
+			<p v-show="myData.length == 0">暂无数据。。。</p>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el:"#itany",
+				data:{
+					keyword:"",
+					myData:[],
+					now:-1   //默认当前索引
+				},
+				methods:{
+					getData(e){
+						if(e.keyCode == 38 || e.keyCode == 40){
+							return;
+						}
+						this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+							params:{
+								wd:this.keyword
+							},
+							jsonp:'cb'
+						}).then(res =>{
+							console.log(res.data);
+							this.myData = res.data.s;
+						})
+					},
+					changeUp(){
+						this.now--;
+						this.keyword=this.myData[this.now];
+						if(this.now = -2){
+							this.now = this.myData.length-1;
+						}
+					},
+					changeDown(){
+						this.now++;
+						this.keyword=this.myData[this.now];
+						if(this.now >this.myData.length){
+							this.now = -1;
+						}
+					}
+				}
+				
+			});
+		</script>
+	</body>
+</html>

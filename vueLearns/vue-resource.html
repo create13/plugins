@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/vue-resource.min.js" ></script>
+	</head>
+	<body>
+		<div id="itany">
+			<button @click="sendJsonp()">向百度搜索</button>
+			<button @click="sendJsonp2()">向360搜索</button>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el:"#itany",
+				data:{
+				},
+				methods:{
+					sendJsonp(){
+						this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+							params:{
+								wd:'a'
+							},
+							jsonp:'cb'
+						}).then(res =>{
+							console.log(res.data);
+						})
+					},
+					/*https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word=a*/
+					sendJsonp2(){
+						this.$http.jsonp('https://sug.so.360.cn/suggest',{
+							params:{
+								word:'a'
+							}
+						}).then(res =>{
+							console.log(res.data);
+						})
+					},
+				}
+				
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue的属性和方法</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="itany">
+			{{msg}}
+			<h1 ref="hello">你好</h1>
+			<h2 ref="world">世界</h2>
+			<h1 ref="content">姓名：{{content}}</h1>
+			<h1>{{user.xm}}</h1>
+			<h1>{{user.age}}</h1>
+			<button @click='doUpdate'>修改属性</button>
+			<button @click='doAdd'>添加属性</button>
+			<button @click='doDelete'>删除属性</button>
+			<input type="text" v-model="content" />
+			<input type="text" v-model="msg" />
+			<input type="text" v-model="user.id" />
+			{{user.id}}
+			<h1>{{content}}</h1>
+		</div>
+		<script>
+/*		var vm = new Vue({
+				el:'#itany',
+				data:{
+					msg:'hello'
+				},
+				methods:{
+					
+				},
+				name:'lw',
+				age:18,
+				show(){
+					console.log('show');
+				}
+			});*/
+			var vm = new Vue({
+				data:{
+					msg:'hello',
+					content:'tom',
+					user:{
+						id:1001,
+						xm:'Alice'
+					}
+				},
+				methods:{
+					doUpdate(){
+						this.user.xm = '爱丽丝';
+					},
+					doAdd(){
+						/*this.user.age = 24;*///通过普通方式为对象添加1属性时vue无法时时监控到
+						this.$set(this.user,'age',25); //通过vue实例的$set方法为对象添加属性,可以实时监控
+						console.log(this.user);
+					},
+					doDelete(){
+						if(this.user.age){
+							this.$delete(this.user,'age');
+						}
+					}
+				},
+				name:'lw',
+				age:18,
+				show(){
+					console.log('show');
+				},
+				watch:{
+					//使用vue实例提供的watch选项
+					msg:(newValue,oldValue) =>{
+					console.log("age被修改了新值"+newValue+"原值"+oldValue);
+					},
+					user:{
+						handler:(newValue,oldValue) =>{
+							console.log("age被修改了新值"+newValue+"原值"+oldValue);
+						},
+						deep:true  //深度监视 当对象中的属性发生变化时也会监视
+					}
+				}
+			}).$mount('#itany');
+			
+			
+			
+			/*属性
+			 * vm.属性名 获取data中的属性
+			 * console.log(vm.msg);
+			 * vm.$el获取vue实例关联的元素
+			 * vm.$el 获取vue实例关联的元素
+			 * console.log(vm.$el);DOM对象  <div id="itany">hello</div>
+			 * vm.$el.style.color='red';
+			 * 
+			 * vm.$data 获取数据对象data
+			 * console.log(vm.$data);
+			 * console.log(vm.$data.msg);
+			 * 
+			 * vm.$options 获取自定义属性
+			 * console.log(vm.$options.name);
+			 * console.log(vm.$options.age);
+			 * vm.$options.show();
+			 * 
+			 * vm.$refs 获取页面中所有添加ref属性的元素
+			 * console.log(vm.$refs);
+			 */
+			
+			/*方法
+			 vm.$mount() 手动挂载vue实例
+			 vm.$mount('itany');  若el上配置 可以用这个手动挂载
+			 
+			 vm.$destroy();销毁实例
+			 vm.nextTick(callback);
+			
+			 
+			 
+			 * */
+/*			vm.$destroy(); //销毁实例 清理它与其它实例的连接，解绑它的全部指令及事件监听器
+			console.log(vm.$options.show());   //undefined*/
+/*			
+			dom还没更新完，vue实现响应式并不是数据发生改变之后dom立刻变化，需要按一定的策略进行更新，需要时间！
+			vm.content = 'jack';
+			dom还没更新完，vue实现响应式并不是数据发生改变之后dom立刻变化，需要按一定的策略进行更新，需要时间！
+			console.log(vm.$refs.content);
+			console.log(vm.$refs.content.textContent);
+			vm.$nextTick(function(){
+					console.log(vm.$refs.content.textContent);
+			})*/
+			
+			vm.$watch('content',function(newValue,oldValue){
+				console.log("age被修改了新值"+newValue+"原值"+oldValue);
+			},true)
+			
+		</script>
+	</body>
+</html>
