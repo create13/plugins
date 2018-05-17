@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .wrap {
+                height: 500px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: space-around;
+            }
+                        
+            .wrap div {
+                width:250px;
+                height: 50px;
+                text-align: center;
+            }
+            .wrap div:nth-child(odd){
+                background:#ccc;
+            }
+            .wrap div:nth-child(even){
+                background: #eb5555;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div>0</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+        </div>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num = 0;
+        for(var i = 1;i < 10;i++) {
+            if(i % 5 == 0) {
+                break;
+            }
+            num++;
+           
+        }
+        console.log(num);
+        with(location) {
+            var url = href;
+            console.log(href);  //严格模式下不允许使用with语句，否则将视为语法错误 大量使用with语句会导致性能下降，给调试代码带来困难，因此开发大型应用程序时，不建议使用with
+
+        }
+        switch(i) {
+            case 25:
+            alert("25");
+            break;
+            case 35:
+            alert("35");
+            break;
+            default:
+            alert("other"); //switch语句在比较值时使用的是全等操作符，因此不会发生类型转换
+        }
+        
+        
+        
+    </script>
+</body>
+</html>
