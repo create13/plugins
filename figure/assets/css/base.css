@@ -1,0 +1,142 @@
+html, body, ul, ol, li, form, p, dl, dt, dd, table, th, td, menu, pre, textarea, h2, h3,h1,h5,h4,h6{margin: 0;padding: 0}
+body, button, input, textarea, select{font: 14px/1.5 microsoft yahei, arial, verdana, helvetica, sans-serif;}
+fieldset, img, abbr, acronym{border: none;}
+img{vertical-align: middle;}
+address, caption, cite, code, dfn, em, th, var, i{font-style: normal; font-weight: normal;}
+h1, h2, h3, h4, h5, h6{font-size: 100%; font-weight: normal;}
+ul, li{list-style: none}
+i{font-style: normal}
+a{text-decoration: none}
+.cl{*zoom: 1}
+.cl:after{clear: both;content: '\20';display: block;height: 0;visibility: hidden}
+.tc{text-align:center}
+.tl{text-align:left}
+.tr{text-align:right}
+.fl{float:left}
+.fr{float:right}
+
+/* bg-color */
+.bg-gray{background-color: #F7F7F7;}
+.bg-white{background-color: #FFF;}
+.bg-blue{background-color: #56B4C2; border-color: #56B4C2!important;}
+
+/* font-size */
+.ft12{font-size: 12px!important;}
+.ft14{font-size: 14px!important;}
+.ft16{font-size: 16px!important;}
+.ft18{font-size: 18px!important;}
+.ft20{font-size: 20px!important;}
+.ft22{font-size: 22px!important;}
+.ft24{font-size: 24px!important;}
+.ft30{font-size: 30px!important;}
+
+/* margin */
+.mauto{margin: 0 auto;}
+.mr0, .mv0, .ma0{margin-right: 0px!important;}
+.ml0, .mv0, .ma0{margin-left: 0px!important;}
+.mt0, .mh0, .ma0{margin-top: 0px!important;}
+.mb0, .mh0, .ma0{margin-bottom: 0px!important;}
+.mr05, .mv05, .ma05{margin-right:5px!important;}
+.ml05, .mv05, .ma05{margin-left:5px!important;}
+.mt05, .mh05, .ma05{margin-top:5px!important;}
+.mb05, .mh05, .ma05{margin-bottom: 5px!important;}
+.mr10, .mv10, .ma10{margin-right:10px!important;}
+.ml10, .mv10, .ma10{margin-left:10px!important;}
+.mt10, .mh10, .ma10{margin-top:10px!important;}
+.mb10, .mh10, .ma10{margin-bottom: 10px!important;}
+.mr15, .mv15, .ma15{margin-right:15px!important;}
+.ml15, .mv15, .ma15{margin-left:15px!important;}
+.mt15, .mh15, .ma15{margin-top:15px!important;}
+.mb15, .mh15, .ma15{margin-bottom: 15px!important;}
+.mr20, .mv20, .ma20{margin-right:20px!important;}
+.ml20, .mv20, .ma20{margin-left:20px!important;}
+.mt20, .mh20, .ma20{margin-top:20px!important;}
+.mb20, .mh20, .ma20{margin-bottom: 20px!important;}
+.mr25, .mv25, .ma25{margin-right:25px!important;}
+.ml25, .mv25, .ma25{margin-left:25px!important;}
+.mt25, .mh25, .ma25{margin-top:25px!important;}
+.mb25, .mh25, .ma25{margin-bottom: 25px!important;}
+.mr30, .mv30, .ma30{margin-right:30px!important;}
+.ml30, .mv30, .ma30{margin-left:30px!important;}
+.mt30, .mh30, .ma30{margin-top:30px!important;}
+.mb30, .mh30, .ma30{margin-bottom: 30px!important;}
+.mr35, .mv35, .ma35{margin-right:35px!important;}
+.ml35, .mv35, .ma35{margin-left:35px!important;}
+.mt35, .mh35, .ma35{margin-top:35px!important;}
+.mb35, .mh35, .ma35{margin-bottom: 35px!important;}
+.mr40, .mv40, .ma40{margin-right:40px!important;}
+.ml40, .mv40, .ma40{margin-left:40px!important;}
+.mt40, .mh40, .ma40{margin-top:40px!important;}
+.mb40, .mh40, .ma40{margin-bottom: 40px!important;}
+.mr37-5, .mv37-5, .ma37-5{margin-right: 37.5px!important;}
+.ml37-5, .mv37-5, .ma37-5{margin-left: 37.5px!important;}
+.mt37-5, .mh37-5, .ma37-5{margin-top: 37.5px!important;}
+.mb37-5, .mh37-5, .ma37-5{margin-bottom: 37.5px!important;}
+.mb80{margin-bottom: 80px !important;}
+
+/* padding */
+.pr0, .pv0, .pa0{padding-right: 0px!important;}
+.pl0, .pv0, .pa0{padding-left: 0px!important;}
+.pt0, .ph0, .pa0{padding-top: 0px!important;}
+.pb0, .ph0, .pa0{padding-bottom: 0px!important;}
+.pr05, .pv05, .pa05{padding-right: 5px!important;}
+.pl05, .pv05, .pa05{padding-left: 5px!important;}
+.pt05, .ph05, .pa05{padding-top: 5px!important;}
+.pb05, .ph05, .pa05{padding-bottom: 5px!important;}
+.pr10, .pv10, .pa10{padding-right: 10px!important;}
+.pl10, .pv10, .pa10{padding-left: 10px!important;}
+.pt10, .ph10, .pa10{padding-top: 10px!important;}
+.pb10, .ph10, .pa10{padding-bottom: 10px!important;}
+.pr15, .pv15, .pa15{padding-right: 15px!important;}
+.pl15, .pv15, .pa15{padding-left: 15px!important;}
+.pt15, .ph15, .pa15{padding-top: 15px!important;}
+.pb15, .ph15, .pa15{padding-bottom: 15px!important;}
+.pr20, .pv20, .pa20{padding-right: 20px!important;}
+.pl20, .pv20, .pa20{padding-left: 20px!important;}
+.pt20, .ph20, .pa20{padding-top: 20px!important;}
+.pb20, .ph20, .pa20{padding-bottom: 20px!important;}
+.pr30, .pv30, .pa30{padding-right: 30px!important;}
+.pl30, .pv30, .pa30{padding-left: 30px!important;}
+.pt30, .ph30, .pa30{padding-top: 30px!important;}
+.pb30, .ph30, .pa30{padding-bottom: 30px!important;}
+.pt25{padding-top:25px;}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #eee inset
+}
+
+
+
+.text-red{}
+.text-blue{}
+.text-green{}
+.text-gray{}
+
+.zk-pagination-right{position:relative;min-height:20px;}
+.zk-pagination{margin-top: 50px; margin-bottom: 50px; text-align: center;position:relative}
+.zk-pagination-right .zk-pagination{margin-top: 20px;margin-bottom:30px;text-align:right;position:relative;}
+.zk-pagination > li{display: inline-block; margin-left: 1px; font-size: 12px; cursor: pointer;}
+.zk-pagination form{display: none;}
+.zk-pagination > li.disabled a{cursor: not-allowed;}
+.zk-pagination > li.disabled a:hover{background: none; color: #a9a9a9;}
+.zk-pagination > li.btn-opera{margin-left: 0;}
+.zk-pagination > li.btn-opera a{background: #fff; color: #a9a9a9;}
+.zk-pagination > li > a,
+.zk-pagination > li > span{float: none; margin-left: 0; border: 0; display: block; color: #a9a9a9; font-weight: 400; border-radius: 2px;  padding: 4px 10px; margin-right: 10px; font-size: 15px;background: #fff;}
+.zk-pagination > li:first-child > a,
+.zk-pagination > li:first-child > span,
+.zk-pagination-lg > li:first-child > a,
+.zk-pagination-lg > li:first-child > span,
+.zk-pagination-sm > li:first-child > a,
+.zk-pagination-sm > li:first-child > span,
+.zk-pagination > li:last-child > a,
+.zk-pagination > li:last-child > span,
+.zk-pagination-lg > li:last-child > a,
+.zk-pagination-lg > li:last-child > span,
+.zk-pagination-sm > li:last-child > a,
+.zk-pagination-sm > li:last-child > span{border-radius: 2px;}
+.zk-pagination > .active > a,
+.zk-pagination > .active > span,
+.zk-pagination > .active > a:hover,
+.zk-pagination > .active > span:hover{background-color:#fd9271; cursor: default; color: #fff;}
+.zk-pagination .active.btn-opera{display: none;}

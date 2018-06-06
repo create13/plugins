@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>3D</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="http://192.168.1.203:82/minemapapi/v1.3/minemap.css">
+    <link rel="stylesheet" href="../assets/css/mine.css">
+</head>
+<body>
+<div id="map"><div id="info"></div></div>
+
+<script src="../minemap.js"></script>
+<script>
+
+    window.onload = function(){
+        minemap.domainUrl = '//192.168.1.203:82';
+        minemap.spriteUrl = '//192.168.1.203:82/minemapapi/v1.3/sprite/sprite';
+        minemap.serviceUrl = '//192.168.1.203:82/service';
+        minemap.accessToken = 'abcc8f7bf4134076b97b671300ca0baa';
+        minemap.solution = 4638;
+
+
+        var map = new minemap.Map({
+            container: 'map',
+            style: "//192.168.1.203:82/service/solu/style/id/4638",
+            center: [121.48525822410704,31.184083850118427],
+            zoom: 14,
+            pitch: 60,
+            maxZoom:17,
+            minZoom:9
+        });
+
+        //加载控件
+        map.addControl(new minemap.Navigation(),"bottom-right");
+
+
+        //创建图标
+        //var popup = new minemap.Popup({offset: [0, -30]}).setHTML('<a  class="" href= target=>查看BIM模型</a>');
+        var el = document.createElement('a');
+        el.className = 'none';
+        el.href = "http://www.dlbdata.cn:8082/BIMplatform/modelView.html?rid=4";
+        el.target = "_blank";
+        el.id = 'marker';
+
+
+        var marker = new minemap.Marker(el, {offset: [-25, -25]})
+            .setLngLat([121.48525822410704,31.184083850118427])
+          //  .setPopup(popup)
+            .addTo(map);
+
+
+        //增加点击事件
+        map.on("click", function (e) {
+
+            var lngLat = e.lngLat;
+            var point = e.point;
+            var features = map.queryRenderedFeatures(e);
+            console.log(features);
+            /**
+             * 这个获取经纬度有两种方式，lngLat是我们的基本返回对象，用户可以用
+             * 1 lngLat.lng 获取经度     lngLat.lat 获取纬度
+             * 2 lngLat.toArray()   获取一个数组 [经度，纬度]
+             */
+            document.getElementById("info").innerHTML = ("经纬度坐标：" + lngLat.toArray() + "  像素点坐标：x-" + point.x + ",y-" + point.y);
+
+        })
+    }
+</script>
+</body>

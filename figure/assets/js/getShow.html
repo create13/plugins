@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../js/jquery-2.0.3.min.js"></script>
+   <script>
+    var getStr = `total 139628
+-rw-r--r--. 1 root root    8415 Apr 26 15:39 CM_CN_SHANGHAI_2470190623_B1.mtl
+-rw-r--r--. 1 root root  293994 Apr 26 15:39 CM_CN_SHANGHAI_2470190623_B1.obj
+-rw-r--r--. 1 root root    2447 Apr 26 15:39 CM_CN_SHANGHAI_2470190623_B2.mtl
+-rw-r--r--. 1 root root  293803 Apr 26 15:39 CM_CN_SHANGHAI_2470190623_B2.obj
+`;
+
+
+var getArray = [];
+document.write(getStr.match());
+var matchStr = /(?<=CN_).*?(?=(.mtl|.obj))/gi;
+// var matchStr = /(?<=CN_).*?(?=.mtl)/gi;
+// var matchStr = /CM_CN_.*?\.mtl/gi;
+// var matchStr = /CM_CN_.*?(?=.mtl)/gi;
+getStr.match(matchStr);
+console.log(getStr.match(matchStr));
+console.log(Object.keys(Array.prototype));
+console.log(Object.getOwnPropertyNames(Array.prototype));
+function Person(name) {
+    this.name = name;
+    this.colors = ["yellow", "red"];
+}
+Person.prototype.sayName = function () {
+    return this.name;
+}
+function People(name, age) {
+    Person.call(this, name);
+    this.age = age;
+}
+console.log(new People("le", 21));
+console.log(People.toString());
+console.log(Object.getOwnPropertyNames(new People()));
+People.prototype = new Person();
+People.prototype.sayAge = function () {
+    return this.age;
+}
+let test1 = new People('lww', 24);
+console.log(test1.sayName());
+test1.colors.push("black");
+console.log(test1.colors);
+
+let test2 = new People('dw', 27);
+console.log(test2.sayName());
+console.log(test2.colors);
+
+function amFer(arg1, arg2, arg3) {
+}
+console.log(amFer.name);
+// 解决严格模式下 arguments.callee导致错误的情况
+    'use strict'
+var argus = function f(num) {
+    if(num <= 1) {
+        return 1;
+    } else {
+        return num * f(num - 1);
+    }
+};
+console.log(argus(6));
+function demoTest() {
+   var result = [];
+   for (i = 0; i < 10; i++) {
+       result[i] = function () {
+           return i;
+       }
+   }
+   return result;
+}
+console.log(demoTest());
+var name = "window";
+
+var Objects = {
+    name: "myObject",
+    getNameFunc: function () {
+        return function () {
+            return this.name;
+        }
+    }
+}
+console.log(Objects.getNameFunc()());
+console.log(Objects.getNameFunc());
+var name = "The Window"; 
+var object = { 
+    name : "My Object", 
+    getName: function () {
+        return this. name;
+    } 
+};
+console.log(object.getName);
+console.log(object.getName());
+
+
+    </script> 
+</body>
+</html>

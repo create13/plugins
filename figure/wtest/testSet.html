@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bigSquare {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+        .bigSquare img {
+            width: 20px;
+            height: 20px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+        <div class="bigSquare" onclick="times()" name="compute" ssra=1>
+            <a>计时</a>
+            <img src="../assets/img/img-warn.png">
+        </div>
+        <p>0</p>
+        <div class="clears" onclick="clearsTime()">清除</div>
+        <script>
+            var timesDate = 0;
+            var startTimes;
+            console.log(seeHeight);
+            console.log(scrollTop);
+            function times() {
+                document.getElementsByTagName("p")[0].innerText = timesDate;
+                timesDate += 1;
+                startTimes = setTimeout("times()",1000);
+            }
+            function clearsTime() {
+                clearTimeout(startTimes);
+            }
+            var seeHeight = document.documentElement.clientHeight;
+            var innerheights = window.innerHeight;
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            console.log(innerheights);
+            console.log(seeHeight);
+            // 获取所有div
+            var alls = document.querySelectorAll("div");
+            console.log(alls);
+            // 获取bigSquare中ssra属性的值
+            var getSsra = document.getElementsByClassName("bigSquare")[0].getAttribute("ssra");
+            console.log(getSsra);
+        </script>
+</body>
+</html>
