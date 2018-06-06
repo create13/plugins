@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+.back-btn {
+  position: absolute;
+  top: 1.2rem;
+  left: 1rem;
+  width: 1.16rem;
+  height: 0.64rem;
+  border: none;
+  background: url('../img/back-btn.png') no-repeat center;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.yellow-color {
+  color: #FFD220;
+}
+.submit-btn {
+  transition: background .3s;
+  background: #47cd31;
+  &:hover {
+    background: #00d800;
+  }
+}
+.cancel-btn {
+  transition: background .3s;
+  background: #fa6200;
+  &:hover {
+    background: #f16a00;
+  }
+}
+
+.ct-tagbox {
+  position: absolute;
+  top: 50%;
+  right: 79px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 392px;
+  height: 620px;
+  font-size: 24px; /* px */
+  color: #fff;
+  background: url('../../../static/images/tag-background.png') no-repeat center;
+  background-size: 100%;
+  transform: translate(0, -50%);
+  opacity: 0.9;
+  .title {
+    height: 80px;
+    line-height: 80px;
+    font-size: 24px;
+    font-family: '\u534e\u6587\u884c\u6977', '\u6977\u4f53', 'Microsoft Yahei'; // '华文行楷', '楷体', '微软雅黑'
+    text-align: center;
+    letter-spacing: 5px;
+    color: #fff;
+    background: radial-gradient(rgba(255, 255, 255, 0.36) 0%, transparent 50%);
+  }
+}

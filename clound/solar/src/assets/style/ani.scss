@@ -1,0 +1,77 @@
+/*
+ * Vue 的 CSS 动画
+*/
+
+// 淡入淡出
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// 放大缩小
+.scale-enter-active,
+.scale-leave-active {
+  transition: transform .5s, opacity .5s;
+}
+.scale-enter,
+.scale-leave-to {
+  opacity: 0.2;
+  transform: scale(0);
+}
+
+// 往右移动消失
+.translate-right-enter-active {
+  transition: transform .2s .7s, opacity .2s .7s;
+}
+.translate-right-leave-active {
+  transition: transform .2s .2s, opacity .2s .2s;
+}
+.translate-right-enter,
+.translate-right-leave-to {
+  opacity: 0.1;
+  transform: translateX(120%);
+}
+
+.translate-tag-right-enter-active,
+.translate-tag-right-leave-active {
+  transition: right 0.4s, opacity 0.4s;
+}
+.translate-tag-right-enter,
+.translate-tag-right-leave-to {
+  opacity: 0.1;
+  right: -400px !important;
+  // transform: translate(0, 150%);
+}
+
+.rotateY-enter-active,
+.rotateY-leave-active {
+  transition: transform 0.4s, opacity 0.4s;
+}
+.rotateY-enter,
+.rotateY-leave-to {
+  opacity: 0.1;
+  transform: rotateY(90deg);
+}
+
+.rotateY-tag-enter-active,
+.rotateY-tag-leave-active {
+  transition: transform 0.4s, opacity 0.4s !important;
+}
+.rotateY-tag-enter,
+.rotateY-tag-leave-to {
+  opacity: 0.1;
+  transform: translate(0, -50%) rotateY(90deg) !important;
+}
+
+@keyframes tagbg {
+  0% {
+    background-size: 0;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
