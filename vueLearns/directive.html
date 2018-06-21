@@ -68,7 +68,9 @@
 				directives:{
 					focus:{
 						//当被绑定元素插入到DOM中时获取焦点
-						inserted(el){
+						inserted(el,value){
+							console.log(el);
+							console.log(value);
 							el.focus();
 						}
 					}

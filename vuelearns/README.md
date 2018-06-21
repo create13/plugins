@@ -283,7 +283,7 @@ vm.$watch(data,callback,[options])
 
 
 或者Vue.directive(指令id,函数);这里会被bind和update调用
-	Vue.directive(my-directive,function(){
+	Vue.directive('my-directive',function(){
 	//这里会被bind和update调用
 	});
 	

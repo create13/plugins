@@ -20,5 +20,3 @@ flex:none|[<'flex-grow'><'flex-shrink'><'flex-basis'>]
 flex-grow:1
 flex-shrink:1
 flex-basis:0
-
-
