@@ -1,0 +1,33 @@
+/*
+ * Vue 的 CSS 动画
+*/
+
+// 淡入淡出
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// 放大缩小
+.scale-enter-active,
+.scale-leave-active {
+  transition: transform .5s, opacity .5s;
+}
+.scale-enter,
+.scale-leave-to {
+  opacity: 0.2;
+  transform: scale(0);
+}
+
+@keyframes torusRotation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
