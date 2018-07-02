@@ -1,0 +1,48 @@
+1.前端优化
+2.http状态码
+3.存储 cookie localStorage sessionStorage
+4.如何解决跨域问题
+5.
+http相关问题 2.0 
+6.http 三次握手 四次握手 
+7.
+异步操作 事件循环 
+
+8.new promise 
+
+9.vuex 异步处理在哪一步 怎么拿state里面的数据 vuex的好处 为什么用vuex 而不用一个全局写一个js
+
+10.原生怎么获取左侧宽度 上面高度 左侧和有边框的宽度  答案 getBoundingClientRect
+11.
+keep-alive作用
+
+12.移动端怎么禁用复制功能  答案 user-select:none
+13.box-sizing都有什么值
+
+14.vue里怎么懒加载
+
+15.js里怎么监听事件 ie中怎么监听
+
+16.原型以及项目中的应用
+17.
+事件委托是什么
+
+18.nodejs 
+19.es6常用哪些
+20.
+vue中的render
+
+21.
+css3中的动画steps
+
+22.手机端如何防止动画卡顿  css3中的属性
+23.less、sass预处理器
+24.浏览器解析的过程  解析域名 解析网页
+25.nextTick
+26.url输入后发生了什么
+27.js数据类型
+28.清除浮动 为什么浮动的原理
+29.闭包
+30.tap和click的区别
+31.css画三角形
+32.手机端常用框架
