@@ -8,3 +8,7 @@
 8.看云海写的东西
 9.class 
 10.node学习
+
+
+mstsc  链接远程桌面
+mspaint 调用画图工具
